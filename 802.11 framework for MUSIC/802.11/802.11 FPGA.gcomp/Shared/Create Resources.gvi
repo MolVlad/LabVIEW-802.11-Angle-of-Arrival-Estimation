@@ -1,0 +1,1776 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="4B3BCACC263B83F9DC91EAF0FE4E8FA8BBF5B6F368250ED60E86CFF702661D58E237C4CB5A99E88722D42BDF5E94EB956D6EF6DE9AAD07D4C45D3841A2D3D2F9" Timestamp="1D57CF9F0A43948" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50029" FeatureSetName="LabVIEW FPGA" Name="http://www.ni.com/LabVIEW.FPGA" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50029" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50029" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50029" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50029" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
+		<ApplicationVersionInfo Build="7.1.0.50029" Name="LabVIEW NXG" Version="4.0.0" />
+	</SourceModelFeatureSet>
+	<VirtualInstrument Id="1" LicenseIdentifier="996cca05-9032-4fe8-b325-566822576ada" Reentrancy="Stateful" xmlns="http://www.ni.com/LabVIEW.VI">
+		<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">"&lt;p&gt;Creates the required resources from registers, FIFOs, and handshakes. The created references are going to be used for&amp;#160;several PHY indications, share properties between MAC and PHY loops,&amp;#160;and data streaming between RF loop and base band loop.&lt;/p&gt;&lt;p&gt;\n&lt;strong&gt;Latency: 0 cycle&lt;/strong&gt;\n&lt;/p&gt;"</p.UserDescription>
+		<Icon Id="2" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+			<IconPanel Height="[float]40" Id="3612" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+				<Path Data="[PathGeometry]M 36,40 L 4,40 C 1.79100001,40 0,38.2089996 0,36 L 0,4 C 0,1.79100001 1.79100001,0 4,0 L 36,0 C 38.2089996,0 40,1.79100001 40,4 L 40,36 C 40,38.2089996 38.2089996,40 36,40 Z" Fill="[SMSolidColorBrush]#ff727272" Height="[float]40" Id="3614" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+				<Path Data="[PathGeometry]M 36,39 L 4,39 C 2.34299994,39 1,37.6570015 1,36 L 1,4 C 1,2.34299994 2.34299994,1 4,1 L 36,1 C 37.6570015,1 39,2.34299994 39,4 L 39,36 C 39,37.6570015 37.6570015,39 36,39 Z" Fill="[SMSolidColorBrush]#fff2f2f2" Height="[float]40" Id="3615" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+				<Path Data="[PathGeometry]M 4,2 L 36,2 C 37.1049995,2 38,2.89499998 38,4 L 38,36 C 38,37.1049995 37.1049995,38 36,38 L 4,38 C 2.89499998,38 2,37.1049995 2,36 L 2,4 C 2,2.89499998 2.89499998,2 4,2 Z" Fill="[SMSolidColorBrush]#ffe5e5e5" Height="[float]40" Id="3616" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+				<Path Data="[PathGeometry]M 7.42600012,7.68400002 C 7.34000015,7.64499998 7.21500015,7.59600019 7.05100012,7.53900003 C 6.88700008,7.48199987 6.74900007,7.43200016 6.63700008,7.39099979 C 6.5250001,7.4920001 6.42399979,7.61499977 6.33400011,7.76000023 C 6.24399996,7.90500021 6.19899988,8.06599998 6.19899988,8.24600029 C 6.19899988,8.5170002 6.296,8.73200035 6.48999977,8.8920002 C 6.68400002,9.05200005 6.9369998,9.13199997 7.25,9.13199997 C 7.33300018,9.13199997 7.43100023,9.11999989 7.54300022,9.09500027 C 7.65500021,9.06999969 7.75099993,9.03299999 7.83199978,8.97999954 C 7.92600012,8.92000008 8.0010004,8.85000038 8.05900002,8.77000046 C 8.11699963,8.68999958 8.14500046,8.57999992 8.14500046,8.44200039 C 8.14500046,8.25399971 8.09799957,8.11200047 8.00399971,8.01599979 C 7.90999985,7.92000008 7.71700001,7.80900002 7.42600012,7.68400002 Z" Fill="[SMSolidColorBrush]#ff892121" Height="[float]40" Id="3617" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+				<Path Data="[PathGeometry]M 6.92999983,6.21099997 C 7.00299978,6.2420001 7.10200024,6.28100014 7.22900009,6.32600021 C 7.35599995,6.37099981 7.5079999,6.42299986 7.6880002,6.48000002 C 7.80800009,6.33900023 7.89400005,6.21299982 7.9460001,6.10099983 C 7.99800014,5.98899984 8.02400017,5.85099983 8.02400017,5.6869998 C 8.02400017,5.48899984 7.94799995,5.33199978 7.79500008,5.21400023 C 7.6420002,5.09600019 7.44000006,5.03900003 7.1880002,5.03900003 C 7.09399986,5.03900003 6.99900007,5.05100012 6.90100002,5.07399988 C 6.80299997,5.09700012 6.71299982,5.13100004 6.6329999,5.17600012 C 6.55700016,5.21999979 6.49499989,5.27799988 6.44500017,5.3499999 C 6.39499998,5.42199993 6.37099981,5.50199986 6.37099981,5.59399986 C 6.37099981,5.74800014 6.41400003,5.8670001 6.50199986,5.95300007 C 6.59000015,6.03900003 6.73199987,6.125 6.92999983,6.21099997 Z" Fill="[SMSolidColorBrush]#ff892121" Height="[float]40" Id="3618" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+				<Path Data="[PathGeometry]M 12.8669996,5.13700008 C 12.5469999,5.13700008 12.3179998,5.28599977 12.1789999,5.58500004 C 12.04,5.88399982 11.9720001,6.38700008 11.9720001,7.09600019 C 11.9720001,7.78700018 12.0419998,8.2840004 12.1829996,8.59000015 C 12.3240004,8.89599991 12.552,9.04800034 12.8669996,9.04800034 C 13.1820002,9.04800034 13.4099998,8.89599991 13.5509996,8.59000015 C 13.6920004,8.2840004 13.7620001,7.78499985 13.7620001,7.08900023 C 13.7620001,6.38500023 13.6929998,5.88399982 13.5550003,5.58599997 C 13.4169998,5.28800011 13.1879997,5.13700008 12.8669996,5.13700008 Z" Fill="[SMSolidColorBrush]#ff892121" Height="[float]40" Id="3619" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+				<Path Data="[PathGeometry]M 36,2 L 4,2 C 2.89499998,2 2,2.89499998 2,4 L 2,12 L 38,12 L 38,4 C 38,2.89499998 37.1049995,2 36,2 Z M 8.97900009,9.64099979 C 8.53999996,9.96899986 7.9380002,10.1330004 7.17199993,10.1330004 C 6.7420001,10.1330004 6.37400007,10.0889997 6.06699991,10 C 5.76000023,9.91100025 5.50500011,9.78899956 5.30499983,9.63300037 C 5.10699987,9.47900009 4.96000004,9.29899979 4.86499977,9.09399986 C 4.76999998,8.88899994 4.72300005,8.66699982 4.72300005,8.43000031 C 4.72300005,8.13799953 4.80800009,7.88000011 4.97900009,7.65500021 C 5.1500001,7.42999983 5.44399977,7.2329998 5.86399984,7.0630002 L 5.86399984,7.03900003 C 5.52600002,6.8829999 5.27699995,6.68599987 5.11800003,6.44899988 C 4.95900011,6.21199989 4.87900019,5.9380002 4.87900019,5.625 C 4.87900019,5.16400003 5.09200001,4.78700018 5.51999998,4.4920001 C 5.94799995,4.19700003 6.50299978,4.05100012 7.1880002,4.05100012 C 7.90700006,4.05100012 8.47000027,4.18400002 8.87699986,4.45100021 C 9.2840004,4.71799994 9.48799992,5.07399988 9.48799992,5.51999998 C 9.48799992,5.796 9.40200043,6.04199982 9.22999954,6.2579999 C 9.05799961,6.47399998 8.79500008,6.65799999 8.44099998,6.80900002 L 8.44099998,6.83199978 C 8.84700012,6.98600006 9.14799976,7.19299984 9.34300041,7.45300007 C 9.53800011,7.71299982 9.63599968,8.02099991 9.63599968,8.375 C 9.63700008,8.89099979 9.41699982,9.31299973 8.97900009,9.64099979 Z M 15.1409998,8.40299988 C 15.0530005,8.78999996 14.9139996,9.10700035 14.7270002,9.35499954 C 14.5340004,9.6079998 14.2869997,9.79899979 13.9849997,9.92800045 C 13.6829996,10.0570002 13.3109999,10.1210003 12.868,10.1210003 C 12.4329996,10.1210003 12.0620003,10.0559998 11.7550001,9.92599964 C 11.448,9.79599953 11.1990004,9.60299969 11.0089998,9.34700012 C 10.816,9.09200001 10.677,8.77400017 10.5909996,8.39500046 C 10.5050001,8.01599979 10.4619999,7.58099985 10.4619999,7.09100008 C 10.4619999,6.58599997 10.5059996,6.14699984 10.5950003,5.77400017 C 10.6829996,5.40100002 10.8240004,5.08599997 11.0170002,4.82800007 C 11.21,4.57299995 11.46,4.38100004 11.7670002,4.25299978 C 12.0740004,4.12599993 12.441,4.0619998 12.8690004,4.0619998 C 13.3140001,4.0619998 13.6879997,4.12799978 13.9899998,4.25899982 C 14.2919998,4.39099979 14.5389996,4.58699989 14.7320004,4.84700012 C 14.9219999,5.10200024 15.0600004,5.41699982 15.1459999,5.79099989 C 15.2320004,6.16499996 15.2749996,6.59700012 15.2749996,7.08699989 C 15.2749996,7.57700014 15.2290001,8.01599979 15.1409998,8.40299988 Z M 21,10 L 16.434,10 L 16.434,9.03899956 C 16.7830009,8.7869997 17.1329994,8.51799965 17.4829998,8.23400021 C 17.8330002,7.94999981 18.1140003,7.70499992 18.3250008,7.5 C 18.6399994,7.19500017 18.8640003,6.92999983 18.9969997,6.70300007 C 19.1299992,6.47599983 19.1959991,6.25199986 19.1959991,6.03100014 C 19.1959991,5.76499987 19.1110001,5.55999994 18.9400005,5.41599989 C 18.7689991,5.27199984 18.5240002,5.19899988 18.2040005,5.19899988 C 17.9640007,5.19899988 17.7119999,5.24800014 17.448,5.34700012 C 17.184,5.4460001 16.9379997,5.57200003 16.7119999,5.72599983 L 16.5869999,5.72599983 L 16.5869999,4.43400002 C 16.7719994,4.35300016 17.0450001,4.27199984 17.4050007,4.19199991 C 17.7649994,4.11199999 18.1270008,4.0710001 18.4890003,4.0710001 C 19.2180004,4.0710001 19.7740002,4.22399998 20.1569996,4.53000021 C 20.5400009,4.83599997 20.7310009,5.26900005 20.7310009,5.829 C 20.7310009,6.1960001 20.6389999,6.54500008 20.4559994,6.87599993 C 20.2730007,7.20699978 19.9920006,7.54799986 19.6140003,7.89900017 C 19.3770008,8.11800003 19.1389999,8.31900024 18.8990002,8.50300026 C 18.6590004,8.68700027 18.4890003,8.81499958 18.3869991,8.88799953 L 21,8.88799953 L 21,10 Z M 23.5739994,10 L 22.1130009,10 L 22.1130009,8.46500015 L 23.5739994,8.46500015 L 23.5739994,10 Z M 29.2110004,10 L 25.3279991,10 L 25.3279991,8.98400021 L 26.5550003,8.98400021 L 26.5550003,5.90999985 L 25.3279991,5.90999985 L 25.3279991,4.96099997 C 25.5160007,4.96099997 25.6949997,4.94999981 25.8670006,4.92799997 C 26.0389996,4.90600014 26.1819992,4.8670001 26.2970009,4.8130002 C 26.4319992,4.74800014 26.5340004,4.66300011 26.6019993,4.55900002 C 26.6700001,4.45499992 26.7089996,4.32499981 26.7189999,4.16800022 L 28.0119991,4.16800022 L 28.0119991,8.98400021 L 29.2110004,8.98400021 L 29.2110004,10 Z M 34.8979988,10 L 31.0149994,10 L 31.0149994,8.98400021 L 32.2420006,8.98400021 L 32.2420006,5.90999985 L 31.0149994,5.90999985 L 31.0149994,4.96099997 C 31.2029991,4.96099997 31.382,4.94999981 31.5540009,4.92799997 C 31.7259998,4.90600014 31.8689995,4.8670001 31.9839993,4.8130002 C 32.1189995,4.74800014 32.2210007,4.66300011 32.2890015,4.55900002 C 32.3569984,4.45499992 32.3959999,4.32499981 32.4059982,4.16800022 L 33.6990013,4.16800022 L 33.6990013,8.98400021 L 34.8979988,8.98400021 L 34.8979988,10 Z" Fill="[SMSolidColorBrush]#ff892121" Height="[float]40" Id="3620" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+				<Text Height="[float]27" Id="3621" Left="[float]1" SizeMode="[TextModelSizeMode]Fixed" Text="[string]CREATE&#xD;&#xA;RESOURCES" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]12" Width="[float]38">
+					<FontSetting FontSize="5" Id="3622" />
+				</Text>
+			</IconPanel>
+		</Icon>
+		<ConnectorPane Height="40" Id="10" ListViewHeight="70" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+			<ConnectorPaneTerminal />
+			<ConnectorPaneTerminal Hotspot="0 15" />
+			<ConnectorPaneTerminal Hotspot="0 25" />
+			<ConnectorPaneTerminal Hotspot="0 35" />
+			<ConnectorPaneTerminal Hotspot="15 0" />
+			<ConnectorPaneTerminal Hotspot="25 0" />
+			<ConnectorPaneTerminal Hotspot="40 5" ListViewHotspot="150 50" Parameter="3564" />
+			<ConnectorPaneTerminal Hotspot="40 15" ListViewHotspot="150 35" Parameter="3385" />
+			<ConnectorPaneTerminal Hotspot="40 25" />
+			<ConnectorPaneTerminal Hotspot="40 35" />
+			<ConnectorPaneTerminal Hotspot="15 40" />
+			<ConnectorPaneTerminal Hotspot="25 40" />
+		</ConnectorPane>
+		<DiagramUnplacedItems Id="11" xmlns="http://www.ni.com/MocCommon" />
+		<FrontPanelUnplacedItems Height="[float]1600" Id="12" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000" />
+		<BlockDiagram Id="13">
+			<FIFOCreate Bounds="115 65 40 40" Id="15" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<FIFOCreate Bounds="115 105 40 40" Id="16" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<HandshakeCreate Bounds="115 185 40 40" Id="17" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<HandshakeCreate Bounds="115 225 40 40" Id="18" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<HandshakeCreate Bounds="115 265 40 40" Id="21" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<HandshakeCreate Bounds="115 305 40 40" Id="22" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Literal Bounds="103 65 12 10" DataType="UInt8" Id="36" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
+				<DockedConstantFacade UndockedSize="39.5 16" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="37" Joints="N(36:Out)|(115,70) N(15:data type)|(115,70)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="103 105 12 10" DataType="UInt8" Id="38" Label="141" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
+				<DockedConstantFacade UndockedSize="39.5 16" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="39" Joints="N(38:Out)|(115,110) N(16:data type)|(115,110)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="53" Joints="N(3026:Out)|(-95,145) h(204) v(45) N(17:data type)|(115,190)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="63" Joints="N(3001:Out)|(-190,505) h(6) v(210) h(280.5) v(-485) N(18:data type)|(115,230)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="95" Joints="N(1971:Out)|(-50,450) h(6) v(-4) h(143) v(-176) N(21:data type)|(115,270)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="38" Bounds="103 105 0 0" Id="141" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>data type</p.Text>
+			</NodeLabel>
+			<RegisterCreate Bounds="115 485 40 40" Id="177" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Wire Id="178" Joints="N(177:reference out)|(155,490) h(10) v(-25) N(1148:c1t0v)|(280,465)" xmlns="http://www.ni.com/PlatformFramework" />
+			<RegisterCreate Bounds="115 445 40 40" Id="179" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Wire Id="180" Joints="N(179:reference out)|(155,450) N(1148:c0t0v)|(280,450)" xmlns="http://www.ni.com/PlatformFramework" />
+			<RegisterCreate Bounds="115 525 40 40" Id="181" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Wire Id="186" Joints="N(181:reference out)|(155,530) h(25) v(-50) N(1148:c2t0v)|(280,480)" xmlns="http://www.ni.com/PlatformFramework" />
+			<RegisterCreate Bounds="115 565 40 40" Id="187" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Literal Bounds="103 485 12 10" DataType="Boolean" Id="190" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>False</p.Data>
+				<BooleanBehavior />
+				<DockedConstantFacade UndockedSize="26 15" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="191" Joints="N(190:Out)|(115,490) h(5) v(-10) h(-10) v(10) N(177:initial value)|(115,490)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="103 445 12 10" DataType="UInt32" Id="192" Label="270" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LV:" />
+				<DockedConstantFacade UndockedSize="40 15" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="193" Joints="N(192:Out)|(115,450) h(5) v(-10) h(-10) v(10) N(179:initial value)|(115,450)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="103 525 12 10" DataType="Boolean" Id="194" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>False</p.Data>
+				<BooleanBehavior />
+				<DockedConstantFacade UndockedSize="26 15" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="195" Joints="N(194:Out)|(115,530) h(5) v(-10) h(-10) v(10) N(181:initial value)|(115,530)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="192" Bounds="103 445 0 0" Id="270" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>initial value</p.Text>
+			</NodeLabel>
+			<FIFOCreate Bounds="115 645 40 40" Id="323" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Literal Bounds="103 656 12 9" DataType="UInt32" Id="324" Label="370" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>1025</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LV:" />
+				<DockedConstantFacade UndockedSize="50 15" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="325" Joints="N(324:Out)|(115,661) N(323:minimum depth)|(115,660)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<FIFOCreate Bounds="115 605 40 40" Id="326" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Literal Bounds="103 616 12 9" DataType="UInt32" Id="327" Label="371" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>17</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LV:" />
+				<DockedConstantFacade UndockedSize="40 15" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="328" Joints="N(327:Out)|(115,621) N(326:minimum depth)|(115,620)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<FIFOCreate Bounds="115 685 40 40" Id="329" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Literal Bounds="103 696 12 9" DataType="UInt32" Id="330" Label="372" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>1025</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LV:" />
+				<DockedConstantFacade UndockedSize="50 15" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="331" Joints="N(330:Out)|(115,701) N(329:minimum depth)|(115,700)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<FIFOCreate Bounds="115 725 40 40" Id="336" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Literal Bounds="103 736 12 9" DataType="UInt32" Id="338" Label="373" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>17</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LV:" />
+				<DockedConstantFacade UndockedSize="40 15" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="339" Joints="N(338:Out)|(115,741) N(336:minimum depth)|(115,740)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="103 645 12 10" DataType="CFXP(3.13)" Id="340" Label="374" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0x0;0x0</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LVFXP:CFXP_3_13&gt;&gt;Decimal, Uppercase, Signed:" />
+				<DockedConstantFacade UndockedSize="57 15" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="341" Joints="N(340:Out)|(115,650) h(5) v(-10) h(-10) v(10) N(323:data type)|(115,650)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="103 605 12 10" DataType="CFXP(3.13)" Id="342" Label="375" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0x0;0x0</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LVFXP:CFXP_3_13&gt;&gt;Decimal, Uppercase, Signed:" />
+				<DockedConstantFacade UndockedSize="57 15" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="343" Joints="N(342:Out)|(115,610) h(5) v(-10) h(-10) v(10) N(326:data type)|(115,610)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="103 685 12 10" DataType="CFXP(3.13)" Id="344" Label="376" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0x0;0x0</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LVFXP:CFXP_3_13&gt;&gt;Decimal, Uppercase, Signed:" />
+				<DockedConstantFacade UndockedSize="57 15" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="345" Joints="N(344:Out)|(115,690) h(5) v(-10) h(-10) v(10) N(329:data type)|(115,690)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="103 725 12 10" DataType="UFXP(5.1)" Id="368" Label="377" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0x0</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LVFXP:UFXP_5_1:G6" />
+				<DockedConstantFacade UndockedSize="39.5 16" />
+			</Literal>
+			<Wire Facade="WireInvisibleFacade" Id="369" Joints="N(368:Out)|(115,730) N(336:data type)|(115,730)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="324" Bounds="103 656 0 0" Id="370" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>depth</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="327" Bounds="103 616 0 0" Id="371" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>depth</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="330" Bounds="103 696 0 0" Id="372" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>depth</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="338" Bounds="103 736 0 0" Id="373" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>depth</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="340" Bounds="103 645 0 0" Id="374" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>Data in</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="342" Bounds="103 605 0 0" Id="375" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>Data in</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="344" Bounds="103 685 0 0" Id="376" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>Data in</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="368" Bounds="103 725 0 0" Id="377" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>gain</p.Text>
+			</NodeLabel>
+			<Wire Id="512" Joints="N(326:reference out)|(155,610) h(60) v(-100) N(1148:c4t0v)|(280,510)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="513" Joints="N(323:reference out)|(155,650) h(70) v(-125) N(1148:c5t0v)|(280,525)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="514" Joints="N(329:reference out)|(155,690) h(80) v(-150) N(1148:c6t0v)|(280,540)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="515" Joints="N(336:reference out)|(155,730) h(90) v(-175) N(1148:c7t0v)|(280,555)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="649" Joints="N(2934:Out)|(85,325) h(24) v(-15) N(22:data type)|(115,310)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="904" Joints="N(3887:Out)|(85,585) h(24) v(-15) N(187:initial value)|(115,570)" xmlns="http://www.ni.com/PlatformFramework" />
+			<PropertyNode Bounds="280 435 175 140" HasErrorTerminals="False" Id="1148" InstanceDataType="@8ab04597ef684144a5efe12ad0520a08" Mode="InstanceProperties" Template="List" xmlns="http://www.ni.com/MocCommon">
+				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+					<TypeDefinitionTarget TargetName="AFW::802_11::Types::FPGA Resources.gtype" />
+					<TypeDefinitionTarget TargetName="AFW::802_11::Types::FPGA Shared Properties.gtype" />
+				</p.TypeDefinitionTargets>
+				<PropertyItemTerminal Action="Write" DataType="@340eeba9a2174f02b9a9f7a59901433a" Hotspot="0 15" Id="c0t0v" Path="global timestamp" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@fe727365e16a43739fc579617e572605" Hotspot="0 30" Id="c1t0v" Path="OFDM symbol pulse" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@fe727365e16a43739fc579617e572605" Hotspot="0 45" Id="c2t0v" Path="TX active" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@9e0c2fd21ad34168a81b7a713624d838" Hotspot="0 60" Id="c3t0v" Path="shared properties" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@7f56305224174c13b6c48f636677ecd8" Hotspot="0 75" Id="c4t0v" Path="RF to RX FIFO" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@7f56305224174c13b6c48f636677ecd8" Hotspot="0 90" Id="c5t0v" Path="internal loopback FIFO" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@7f56305224174c13b6c48f636677ecd8" Hotspot="0 105" Id="c6t0v" Path="TX to RF FIFO" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@6b9d4459e37646d5bda3d38ecefef7b6" Hotspot="0 120" Id="c7t0v" Path="Gain Settings FIFO" PathElementMemberKinds="Field" Usage="Required" />
+			</PropertyNode>
+			<Wire Id="1463" Joints="N(187:reference out)|(155,570) h(40) v(-75) N(1148:c3t0v)|(280,495)" xmlns="http://www.ni.com/PlatformFramework" />
+			<HandshakeCreate Bounds="115 145 40 40" Id="2202" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Wire Id="2211" Joints="N(2203:Out)|(80,200) h(19) v(-50) N(2202:data type)|(115,150)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2439" Joints="N(3213:Out)|(75,455) h(14) v(-105) N(3240:data type)|(115,350)" xmlns="http://www.ni.com/PlatformFramework" />
+			<PropertyNode Bounds="280 55 224 140" HasErrorTerminals="False" Id="2623" InstanceDataType="@bd8ffd78e3b7413caae10c61a5590763" Mode="InstanceProperties" Template="List" xmlns="http://www.ni.com/MocCommon">
+				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+					<TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY SAP Ressources.gtype" />
+					<TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY CCA Indication.gtype" />
+					<TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyRxStart.ind.gtype" />
+					<TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyRxEnd.ind.gtype" />
+					<TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyTxStart.req.gtype" />
+					<TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyTxEnd.ind.gtype" />
+					<TypeDefinitionTarget TargetName="AFW::802_11::Types::AGC Event.gtype" />
+				</p.TypeDefinitionTargets>
+				<PropertyItemTerminal Action="Write" DataType="@454b2805d43743acbf51b8b7b64cc032" Hotspot="0 15" Id="c0t0v" Path="PSDU (RX)" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@454b2805d43743acbf51b8b7b64cc032" Hotspot="0 30" Id="c1t0v" Path="PSDU (TX)" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@1e578676e2ff49e4a5ddddd97f6f2511" Hotspot="0 105" Id="c2t0v" Path="PhyTxEnd.ind" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@4ba06520fe6b4b92bb7ad357a2f0a0e4" Hotspot="0 90" Id="c3t0v" Path="PhyTxStart.req" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@7362c9e4654543709f368fd335b12bc1" Hotspot="0 60" Id="c4t0v" Path="PhyRxStart.ind" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@bb58922603fd4cfe86b007d6a77bdb1d" Hotspot="0 45" Id="c5t0v" Path="PHY CCA indication" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@2a6532e883594c96a3805034006a2717" Hotspot="0 75" Id="c6t0v" Path="PhyRxEnd.ind" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@5d3849f63eae431584255eb00c2cf11f" Hotspot="0 120" Id="c7t0v" Path="PHY RX gain change indication" PathElementMemberKinds="Field" Usage="Required" />
+			</PropertyNode>
+			<Wire Id="2625" Joints="N(15:reference out)|(155,70) N(2623:c0t0v)|(280,70)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2626" Joints="N(16:reference out)|(155,110) h(5) v(-25) N(2623:c1t0v)|(280,85)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2627" Joints="N(2202:reference out)|(155,150) h(15) v(-50) N(2623:c5t0v)|(280,100)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2628" Joints="N(17:reference out)|(155,190) h(25) v(-75) N(2623:c4t0v)|(280,115)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2629" Joints="N(18:reference out)|(155,230) h(35) v(-100) N(2623:c6t0v)|(280,130)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2630" Joints="N(21:reference out)|(155,270) h(50) v(-125) N(2623:c3t0v)|(280,145)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2631" Joints="N(22:reference out)|(155,310) h(65) v(-150) N(2623:c2t0v)|(280,160)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2632" Joints="N(3240:reference out)|(155,350) h(80) v(-175) N(2623:c7t0v)|(280,175)" xmlns="http://www.ni.com/PlatformFramework" />
+			<FIFOCreate Bounds="115 345 40 40" Id="3240" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Literal Bounds="103 356 12 9" DataType="UInt32" Id="3241" Label="3242" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>1025</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
+				<DockedConstantFacade UndockedSize="50 15" />
+			</Literal>
+			<NodeLabel AttachedTo="3241" Bounds="103 356 0 0" Id="3242" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>depth</p.Text>
+			</NodeLabel>
+			<Wire Facade="WireInvisibleFacade" Id="3243" Joints="N(3241:Out)|(115,361) N(3240:minimum depth)|(115,360)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Facade="WireInvisibleFacade" Id="3383" Joints="N(4064:Out)|(280,61) v(9) h(-146) v(-10) N(2623:instance in)|(280,60)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="515 55 40 15" DataItem="3385" Id="3405" Label="3406" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="@bd8ffd78e3b7413caae10c61a5590763" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="3405" Bounds="560 55 105 14" Id="3406" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>PHY SAP resources</p.Text>
+			</NodeLabel>
+			<Wire Id="3407" Joints="N(2623:instance out)|(504,60) N(3405:Value)|(518,60)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Comment Bounds="320 20 110 15" Id="3427" xmlns="http://www.ni.com/MocCommon">
+				<p.Text>Latency: 0 cycle</p.Text>
+			</Comment>
+			<Wire Facade="WireInvisibleFacade" Id="3488" Joints="N(3546:Out)|(280,441) N(1148:instance in)|(280,440)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="525 510 40 15" DataItem="3564" Id="3584" Label="3585" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="@8ab04597ef684144a5efe12ad0520a08" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="3584" Bounds="570 510 160 14" Id="3585" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>registers and FIFO resources</p.Text>
+			</NodeLabel>
+			<Wire Id="3586" Joints="N(1148:instance out)|(455,440) h(10) v(75) N(3584:Value)|(528,515)" xmlns="http://www.ni.com/PlatformFramework" />
+			<ClusterLiteral Bounds="268 436 12 9" DataType="@8ab04597ef684144a5efe12ad0520a08" Id="3546" Label="3813" p4:ControlDefinitionChecksum="KHvlyL4mc/P4FfCLfOsbUKv9eY3at3gszI2vIO46cSg=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>
+					<Cluster>
+						<Field1>""</Field1>
+						<Field2>""</Field2>
+						<Field3>""</Field3>
+						<Field4>""</Field4>
+						<Field5>""</Field5>
+						<Field6>""</Field6>
+						<Field7>""</Field7>
+						<Field8>""</Field8>
+					</Cluster>
+				</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::FPGA Resources.gtype" />
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::FPGA Resources.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<ClusterBehavior AutoArrange="ArrangeVertically" />
+				<IONameConstant Bounds="2 20 15 15" DataType="@340eeba9a2174f02b9a9f7a59901433a" Id="4376" Label="4377" UdrClass="Register" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<IONameConstantBehavior />
+					<InstanceDataEntry Id="4392" Key="ElementDataTypeFilter" Value="[Type]UInt32" />
+					<InstanceDataEntry Id="4393" Key="ElementShapeFilter" Value="Scalar" />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4376" Bounds="2 2 30 15" Id="4377" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>global timestamp</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 57 15 15" DataType="@fe727365e16a43739fc579617e572605" Id="4378" Label="4379" UdrClass="Register" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<IONameConstantBehavior />
+					<InstanceDataEntry Id="4394" Key="ElementDataTypeFilter" Value="[Type]Boolean" />
+					<InstanceDataEntry Id="4395" Key="ElementShapeFilter" Value="Scalar" />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4378" Bounds="2 39 30 15" Id="4379" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>OFDM symbol pulse</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 94 15 15" DataType="@fe727365e16a43739fc579617e572605" Id="4380" Label="4381" UdrClass="Register" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<IONameConstantBehavior />
+					<InstanceDataEntry Id="4396" Key="ElementDataTypeFilter" Value="[Type]Boolean" />
+					<InstanceDataEntry Id="4397" Key="ElementShapeFilter" Value="Scalar" />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4380" Bounds="2 76 30 15" Id="4381" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>TX active</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 131 15 15" DataType="@7f56305224174c13b6c48f636677ecd8" Id="4382" Label="4383" UdrClass="Fifo" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<IONameConstantBehavior />
+					<InstanceDataEntry Id="4398" Key="InterfaceFilter" Value="Read/Write" />
+					<InstanceDataEntry Id="4399" Key="ElementDataTypeFilter" Value="[Type]CFXP(3.13)" />
+					<InstanceDataEntry Id="4400" Key="ElementShapeFilter" Value="Scalar" />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4382" Bounds="2 113 30 15" Id="4383" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>RF to RX FIFO</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 168 15 15" DataType="@7f56305224174c13b6c48f636677ecd8" Id="4384" Label="4385" UdrClass="Fifo" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<IONameConstantBehavior />
+					<InstanceDataEntry Id="4401" Key="InterfaceFilter" Value="Read/Write" />
+					<InstanceDataEntry Id="4402" Key="ElementDataTypeFilter" Value="[Type]CFXP(3.13)" />
+					<InstanceDataEntry Id="4403" Key="ElementShapeFilter" Value="Scalar" />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4384" Bounds="2 150 30 15" Id="4385" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>internal loopback FIFO</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 205 15 15" DataType="@7f56305224174c13b6c48f636677ecd8" Id="4386" Label="4387" UdrClass="Fifo" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<IONameConstantBehavior />
+					<InstanceDataEntry Id="4404" Key="InterfaceFilter" Value="Read/Write" />
+					<InstanceDataEntry Id="4405" Key="ElementDataTypeFilter" Value="[Type]CFXP(3.13)" />
+					<InstanceDataEntry Id="4406" Key="ElementShapeFilter" Value="Scalar" />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4386" Bounds="2 187 30 15" Id="4387" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>TX to RF FIFO</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 242 15 15" DataType="@6b9d4459e37646d5bda3d38ecefef7b6" Id="4388" Label="4389" UdrClass="Fifo" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<IONameConstantBehavior />
+					<InstanceDataEntry Id="4407" Key="InterfaceFilter" Value="Read/Write/Clear" />
+					<InstanceDataEntry Id="4408" Key="ElementDataTypeFilter" Value="[Type]UFXP(5.1)" />
+					<InstanceDataEntry Id="4409" Key="ElementShapeFilter" Value="Scalar" />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4388" Bounds="2 224 30 15" Id="4389" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>Gain Settings FIFO</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 279 15 15" DataType="@9e0c2fd21ad34168a81b7a713624d838" Id="4390" Label="4391" UdrClass="Register" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::FPGA Shared Properties.gtype" />
+					</p4:p.TypeDefinitionTargets>
+					<IONameConstantBehavior />
+					<InstanceDataEntry Id="4410" Key="ElementDataTypeFilter" Value="[Type]@95bb5e3d1ff645e89793f7c675ca6ee5" />
+					<InstanceDataEntry Id="4411" Key="ElementShapeFilter" Value="Scalar" />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4390" Bounds="2 261 30 15" Id="4391" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>shared properties</p.Text>
+				</NodeLabel>
+				<DockedConstantFacade UndockedSize="51 306" />
+			</ClusterLiteral>
+			<NodeLabel AttachedTo="3546" Bounds="268 419 90 14" Id="3813" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>FPGA Resources</p.Text>
+			</NodeLabel>
+			<ClusterLiteral Bounds="268 56 12 9" DataType="@bd8ffd78e3b7413caae10c61a5590763" Id="4064" Label="4090" p4:ControlDefinitionChecksum="4GMA9sOqCbeKH8ML29PEJeDezQexJEqqjX12KXcQTlo=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>
+					<Cluster>
+						<Field1>""</Field1>
+						<Field2>""</Field2>
+						<Field3>""</Field3>
+						<Field4>""</Field4>
+						<Field5>""</Field5>
+						<Field6>""</Field6>
+						<Field7>""</Field7>
+						<Field8>""</Field8>
+					</Cluster>
+				</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY SAP Ressources.gtype" />
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY SAP Ressources.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<ClusterBehavior AutoArrange="ArrangeVertically" />
+				<IONameConstant Bounds="2 20 15 15" DataType="@454b2805d43743acbf51b8b7b64cc032" Id="4508" Label="4509" UdrClass="Fifo" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<IONameConstantBehavior />
+					<InstanceDataEntry Id="4524" Key="InterfaceFilter" Value="Read/Write/Clear" />
+					<InstanceDataEntry Id="4525" Key="ElementDataTypeFilter" Value="[Type]UInt8" />
+					<InstanceDataEntry Id="4526" Key="ElementShapeFilter" Value="Scalar" />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4508" Bounds="2 2 30 15" Id="4509" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>PSDU (RX)</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 57 15 15" DataType="@454b2805d43743acbf51b8b7b64cc032" Id="4510" Label="4511" UdrClass="Fifo" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<IONameConstantBehavior />
+					<InstanceDataEntry Id="4527" Key="InterfaceFilter" Value="Read/Write/Clear" />
+					<InstanceDataEntry Id="4528" Key="ElementDataTypeFilter" Value="[Type]UInt8" />
+					<InstanceDataEntry Id="4529" Key="ElementShapeFilter" Value="Scalar" />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4510" Bounds="2 39 30 15" Id="4511" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>PSDU (TX)</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 94 120 15" DataType="@1e578676e2ff49e4a5ddddd97f6f2511" Id="4512" Label="4513" ShowType="False" UdrClass="Handshake" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyTxEnd.ind.gtype" />
+					</p4:p.TypeDefinitionTargets>
+					<IONameConstantBehavior />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4512" Bounds="2 76 30 15" Id="4513" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>PhyTxEnd.ind</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 131 120 15" DataType="@4ba06520fe6b4b92bb7ad357a2f0a0e4" Id="4514" Label="4515" ShowType="False" UdrClass="Handshake" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyTxStart.req.gtype" />
+					</p4:p.TypeDefinitionTargets>
+					<IONameConstantBehavior />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4514" Bounds="2 113 30 15" Id="4515" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>PhyTxStart.req</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 168 120 15" DataType="@7362c9e4654543709f368fd335b12bc1" Id="4516" Label="4517" ShowType="False" UdrClass="Handshake" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyRxStart.ind.gtype" />
+					</p4:p.TypeDefinitionTargets>
+					<IONameConstantBehavior />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4516" Bounds="2 150 30 15" Id="4517" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>PhyRxStart.ind</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 205 120 15" DataType="@bb58922603fd4cfe86b007d6a77bdb1d" Id="4518" Label="4519" ShowType="False" UdrClass="Handshake" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY CCA Indication.gtype" />
+					</p4:p.TypeDefinitionTargets>
+					<IONameConstantBehavior />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4518" Bounds="2 187 30 15" Id="4519" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>PHY CCA indication</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 242 120 15" DataType="@2a6532e883594c96a3805034006a2717" Id="4520" Label="4521" ShowType="False" UdrClass="Handshake" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyRxEnd.ind.gtype" />
+					</p4:p.TypeDefinitionTargets>
+					<IONameConstantBehavior />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4520" Bounds="2 224 30 15" Id="4521" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>PhyRxEnd.ind</p.Text>
+				</NodeLabel>
+				<IONameConstant Bounds="2 279 15 15" DataType="@5d3849f63eae431584255eb00c2cf11f" Id="4522" Label="4523" UdrClass="Fifo" UdrNamespace="FPGA">
+					<p.Data>""</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::AGC Event.gtype" />
+					</p4:p.TypeDefinitionTargets>
+					<IONameConstantBehavior />
+					<InstanceDataEntry Id="4530" Key="InterfaceFilter" Value="Read/Write/Clear" />
+					<InstanceDataEntry Id="4531" Key="ElementDataTypeFilter" Value="[Type]@4bfc10d1607344ca8c5a9108a4f7b672" />
+					<InstanceDataEntry Id="4532" Key="ElementShapeFilter" Value="Scalar" />
+				</IONameConstant>
+				<NodeLabel AttachedTo="4522" Bounds="2 261 30 15" Id="4523" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>PHY RX gain change indication</p.Text>
+				</NodeLabel>
+				<DockedConstantFacade UndockedSize="141 306" />
+			</ClusterLiteral>
+			<NodeLabel AttachedTo="4064" Bounds="268 39 114 14" Id="4090" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>PHY SAP Ressources</p.Text>
+			</NodeLabel>
+			<ClusterLiteral Bounds="24 320 61 121" DataType="@15a8451037184a92a4852bd5101e2482" Id="2934" Label="3693" p4:ControlDefinitionChecksum="1fMvcEsn3SGcVs7MGpGgXjFO6u4r/gsSu6NhXgULBbo=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>False_0x0_False_</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyTxEnd.ind.gtype" />
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyTxEnd.ind.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<ClusterBehavior AutoArrange="ArrangeVertically" />
+				<Literal Bounds="2 20 25 15" DataType="Boolean" Id="14dd069ecc0d484bb1c3f94e717a7e2d" Label="27242c0d32f547489eb2c0bd56136ef7">
+					<p.Data>False</p.Data>
+					<BooleanBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="14dd069ecc0d484bb1c3f94e717a7e2d" Bounds="2 2 30 15" Id="27242c0d32f547489eb2c0bd56136ef7" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>unsupported mode</p.Text>
+				</NodeLabel>
+				<Literal Bounds="2 57 40 15" DataType="UFXP(7.0)" Id="ffeef3df26f444c09ce816eb3d9cdf1b" Label="f7e69e28dbe485181787523c9b81598">
+					<p.Data>0x0</p.Data>
+					<NumericBehavior Interpretation="Exact" ValueFormatter="LVFXP:UFXP_7_0:G6" />
+				</Literal>
+				<NodeLabel AttachedTo="ffeef3df26f444c09ce816eb3d9cdf1b" Bounds="2 39 30 15" Id="f7e69e28dbe485181787523c9b81598" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>scrambler seed</p.Text>
+				</NodeLabel>
+				<Literal Bounds="2 94 25 15" DataType="Boolean" Id="8fe7c65e9c364b8c990645aec9afdc09" Label="79c6d2c4327d46b58d457940f9493b07">
+					<p.Data>False</p.Data>
+					<BooleanBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="8fe7c65e9c364b8c990645aec9afdc09" Bounds="2 76 30 15" Id="79c6d2c4327d46b58d457940f9493b07" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>valid</p.Text>
+				</NodeLabel>
+			</ClusterLiteral>
+			<NodeLabel AttachedTo="2934" Bounds="24 302 30 15" Id="3693" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>PhyTxEnd.ind</p.Text>
+			</NodeLabel>
+			<ClusterLiteral Bounds="-36 580 121 131" DataType="@95bb5e3d1ff645e89793f7c675ca6ee5" Id="3887" Label="3895" p4:ControlDefinitionChecksum="nSkX+r/Tbwp/BkKadF8aCr5/Svh0bfld5DaLarr3rzA=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>
+					<Cluster>
+						<Field1>0x0</Field1>
+						<Field2>null</Field2>
+						<Field3>0</Field3>
+					</Cluster>
+				</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::FPGA Shared Properties.gtype" />
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::FPGA Shared Properties.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<ClusterBehavior AutoArrange="ArrangeVertically" />
+				<Literal Bounds="2 20 40 15" DataType="UFXP(2.0)" Id="dbc9694ef4e94d4ab5cb928c16840064" Label="3740c03f12a64761b58969d8a465c096">
+					<p.Data>0x0</p.Data>
+					<NumericBehavior Interpretation="Exact" ValueFormatter="LVFXP:UFXP_2_0:" />
+				</Literal>
+				<NodeLabel AttachedTo="dbc9694ef4e94d4ab5cb928c16840064" Bounds="2 2 30 15" Id="3740c03f12a64761b58969d8a465c096" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>primary channel selector</p.Text>
+				</NodeLabel>
+				<ArrayLiteral Bounds="2 57 100 25" DataType="UInt8[6]" Id="e46f964fcc914d159c8baa5296f3eb86" Label="3acae6a86f4244beb1474e3e2e9033c7">
+					<p.Data>null</p.Data>
+					<ArrayBehavior ElementType="UInt8" IndexEditorWidth="42" Orientation="Horizontal">
+						<p.DefaultElementValue>0</p.DefaultElementValue>
+					</ArrayBehavior>
+					<Literal Bounds="0 0 40 15" DataType="UInt8" Id="f294a1bdded84d1395d513a682378695">
+						<NumericBehavior Interpretation="Exact" ValueFormatter="LV:0" />
+					</Literal>
+				</ArrayLiteral>
+				<NodeLabel AttachedTo="e46f964fcc914d159c8baa5296f3eb86" Bounds="2 39 30 15" Id="3acae6a86f4244beb1474e3e2e9033c7" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>device MAC address</p.Text>
+				</NodeLabel>
+				<Literal Bounds="2 104 40 15" DataType="UInt16" Id="6bd56ef6c23447a4adaef2f6f26dcc37" Label="b031069c5edc473495b2363681078513">
+					<p.Data>0</p.Data>
+					<NumericBehavior Interpretation="Exact" ValueFormatter="LV:0" />
+				</Literal>
+				<NodeLabel AttachedTo="6bd56ef6c23447a4adaef2f6f26dcc37" Bounds="2 86 30 15" Id="b031069c5edc473495b2363681078513" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>device bandwidth</p.Text>
+				</NodeLabel>
+			</ClusterLiteral>
+			<NodeLabel AttachedTo="3887" Bounds="-36 562 30 15" Id="3895" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>FPGA Shared Properties</p.Text>
+			</NodeLabel>
+			<ClusterLiteral Bounds="14 195 66 121" DataType="@8aa8a3af850d464ab83369f776136a09" Id="2203" Label="3685" p4:ControlDefinitionChecksum="mrUHkZmDiitEp1hgjtn78xxTEw/7p5xCtL0jI2jyqms=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>False_0_False_</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY CCA Indication.gtype" />
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY CCA Indication.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<ClusterBehavior AutoArrange="ArrangeVertically" />
+				<Literal Bounds="2 20 25 15" DataType="Boolean" Id="613a811808a4479d87e4483b8755a9dd" Label="c97c5d5358ef4c79b6479ed3c64e01c8">
+					<p.Data>False</p.Data>
+					<BooleanBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="613a811808a4479d87e4483b8755a9dd" Bounds="2 2 30 15" Id="c97c5d5358ef4c79b6479ed3c64e01c8" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>busy</p.Text>
+				</NodeLabel>
+				<Literal Bounds="2 57 45 15" DataType="@35f8cdeb470b4bc0ba092d9519980a02" Id="83ea2c05c390456e93c8cecd40ba730e" Label="44a421e1e8ef43219ae9390adbc85bfa" p4:ControlDefinitionChecksum="9Y0QI21k7jE1q7G8H/TWRn6FTtS9MftJpD09wME/fXM=">
+					<p.Data>0</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::CCA Indication Channel List Element.gtype" />
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::CCA Indication Channel List Element.gtype::ControlDefinition" />
+					</p4:p.TypeDefinitionTargets>
+					<EnumBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="83ea2c05c390456e93c8cecd40ba730e" Bounds="2 39 30 15" Id="44a421e1e8ef43219ae9390adbc85bfa" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>channel list</p.Text>
+				</NodeLabel>
+				<Literal Bounds="2 94 25 15" DataType="Boolean" Id="86cb0a5ee62942c2be9143bfdd612009" Label="4c3749a05566423fbdd33637b1475f28">
+					<p.Data>False</p.Data>
+					<BooleanBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="86cb0a5ee62942c2be9143bfdd612009" Bounds="2 76 30 15" Id="4c3749a05566423fbdd33637b1475f28" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>valid</p.Text>
+				</NodeLabel>
+			</ClusterLiteral>
+			<NodeLabel AttachedTo="2203" Bounds="14 177 30 15" Id="3685" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>PHY CCA Indication</p.Text>
+			</NodeLabel>
+			<ClusterLiteral Bounds="9 450 66 121" DataType="@4bfc10d1607344ca8c5a9108a4f7b672" Id="3213" Label="3739" p4:ControlDefinitionChecksum="NXWdKEzcDHXBqz8Af1AumC/WRPbiCG1RlcY8FNDJNkI=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0x0_0_False_</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::AGC Event.gtype" />
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::AGC Event.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<ClusterBehavior AutoArrange="ArrangeVertically" />
+				<Literal Bounds="2 20 40 15" DataType="UFXP(6.1)" Id="833ced38222a40a0b091912cc938966e" Label="d22e8f494a71424dbc9cca8389b95d1d">
+					<p.Data>0x0</p.Data>
+					<NumericBehavior Interpretation="Exact" ValueFormatter="LVFXP:UFXP_6_1:G6" />
+				</Literal>
+				<NodeLabel AttachedTo="833ced38222a40a0b091912cc938966e" Bounds="2 2 30 15" Id="d22e8f494a71424dbc9cca8389b95d1d" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>gain</p.Text>
+				</NodeLabel>
+				<Literal Bounds="2 57 45 15" DataType="@b3c2db34cdd544ea83c5280523e46fcb" Id="719af12555d84bdf90745f714b604e3b" Label="ce3a5040586846c0a5c0ec52ec988ae9" p4:ControlDefinitionChecksum="DE94gxEXOcHmMGXMZjkuuUaf/rKO9WjhDDwyflJ9cwE=">
+					<p.Data>0</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::AGC State.gtype" />
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::AGC State.gtype::ControlDefinition" />
+					</p4:p.TypeDefinitionTargets>
+					<EnumBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="719af12555d84bdf90745f714b604e3b" Bounds="2 39 30 15" Id="ce3a5040586846c0a5c0ec52ec988ae9" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>state</p.Text>
+				</NodeLabel>
+				<Literal Bounds="2 94 25 15" DataType="Boolean" Id="b5f9129eb46049ef8524909ee999d2e6" Label="16faf0f591f740d29e5884b321afb2b5">
+					<p.Data>False</p.Data>
+					<BooleanBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="b5f9129eb46049ef8524909ee999d2e6" Bounds="2 76 30 15" Id="16faf0f591f740d29e5884b321afb2b5" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>valid</p.Text>
+				</NodeLabel>
+			</ClusterLiteral>
+			<NodeLabel AttachedTo="3213" Bounds="9 432 30 15" Id="3739" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>AGC Event</p.Text>
+			</NodeLabel>
+			<ClusterLiteral Bounds="-137 445 87 264" DataType="@48871bc03bf448eab1ef9f0ba4c979a2" Id="1971" Label="3677" p4:ControlDefinitionChecksum="OV0hte7SC42kDIb3/VvOfWXT8kOcKjYeCkRodv18+x4=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0_0_0_0_0x0_False_</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyTxStart.req.gtype" />
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyTxStart.req.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<ClusterBehavior AutoArrange="ArrangeVertically" />
+				<ClusterLiteral Bounds="2 20 66 195" DataType="@912aea7c41d14742a6f099b6deaa75fc" Id="e0bd6d5b78fe485e8feb7c0b0c60ca9c" Label="9389ee03546244678396edd56cc0fe86" p4:ControlDefinitionChecksum="l6L/ROxohiES5zcgfcARRREnNvGRI+XiwwjiZcWYhrk=">
+					<p.Data>0_0_0_0_0x0_</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::TX Vector.gtype" />
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::TX Vector.gtype::ControlDefinition" />
+					</p4:p.TypeDefinitionTargets>
+					<ClusterBehavior AutoArrange="ArrangeVertically" />
+					<Literal Bounds="2 20 45 15" DataType="@b60dc357a30f4461b57b6a990de27d1c" Id="a44404502cc545b5b671fa1bee283145" Label="4e0b3f30a05949cd84e65e8adf3a8c04" p4:ControlDefinitionChecksum="bEz7DSrtzmXKyZE+ydYiEZmaFoP/SZhNZBdYnbkNMUs=">
+						<p.Data>0</p.Data>
+						<p4:p.TypeDefinitionTargets>
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY Frame Format.gtype" />
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY Frame Format.gtype::ControlDefinition" />
+						</p4:p.TypeDefinitionTargets>
+						<EnumBehavior />
+					</Literal>
+					<NodeLabel AttachedTo="a44404502cc545b5b671fa1bee283145" Bounds="2 2 30 15" Id="4e0b3f30a05949cd84e65e8adf3a8c04" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>format</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 57 45 15" DataType="@d0c5215e5af94f23af7abede09f40c51" Id="2ccf49c5ead54ccfa2fb68ac0966d26a" Label="6ab485714b8548c585f66b19981e2da8" p4:ControlDefinitionChecksum="L9hUg2V5jgnWFqVnGkkpMTCVQvXbkZ2PQJT9hD+Cq9E=">
+						<p.Data>0</p.Data>
+						<p4:p.TypeDefinitionTargets>
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::Bandwidth.gtype" />
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::Bandwidth.gtype::ControlDefinition" />
+						</p4:p.TypeDefinitionTargets>
+						<EnumBehavior />
+					</Literal>
+					<NodeLabel AttachedTo="2ccf49c5ead54ccfa2fb68ac0966d26a" Bounds="2 39 30 15" Id="6ab485714b8548c585f66b19981e2da8" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>bandwidth</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 94 40 15" DataType="UInt32" Id="f3656fa9ce7d4d40a5d67189315f9c7f" Label="517f928dd81d451bae394d3b15e0d609">
+						<p.Data>0</p.Data>
+						<NumericBehavior Interpretation="Exact" ValueFormatter="LV:0" />
+					</Literal>
+					<NodeLabel AttachedTo="f3656fa9ce7d4d40a5d67189315f9c7f" Bounds="2 76 30 15" Id="517f928dd81d451bae394d3b15e0d609" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>PSDU length</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 131 40 15" DataType="UInt32" Id="533d9963ede74543bcee0861c7450293" Label="1fa05063a1b745518cf4a4ed5a018093">
+						<p.Data>0</p.Data>
+						<NumericBehavior Interpretation="Exact" ValueFormatter="LV:0" />
+					</Literal>
+					<NodeLabel AttachedTo="533d9963ede74543bcee0861c7450293" Bounds="2 113 30 15" Id="1fa05063a1b745518cf4a4ed5a018093" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>(A-)MPDU length</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 168 40 15" DataType="UFXP(4.0)" Id="749d0d422d9b4d098eb8c0cba94ccf91" Label="2d0a18bbd8bf4b50a34ce8652dfc881d">
+						<p.Data>0x0</p.Data>
+						<NumericBehavior Interpretation="Exact" ValueFormatter="LVFXP:UFXP_4_0:" />
+					</Literal>
+					<NodeLabel AttachedTo="749d0d422d9b4d098eb8c0cba94ccf91" Bounds="2 150 30 15" Id="2d0a18bbd8bf4b50a34ce8652dfc881d" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>MCS</p.Text>
+					</NodeLabel>
+				</ClusterLiteral>
+				<NodeLabel AttachedTo="e0bd6d5b78fe485e8feb7c0b0c60ca9c" Bounds="2 2 30 15" Id="9389ee03546244678396edd56cc0fe86" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>TX vector</p.Text>
+				</NodeLabel>
+				<Literal Bounds="2 237 25 15" DataType="Boolean" Id="51dc4b7a5bf04b91ab428e923a26b68c" Label="62dee183c2cf44d5bf2997bfcf1668ac">
+					<p.Data>False</p.Data>
+					<BooleanBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="51dc4b7a5bf04b91ab428e923a26b68c" Bounds="2 219 30 15" Id="62dee183c2cf44d5bf2997bfcf1668ac" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>valid</p.Text>
+				</NodeLabel>
+			</ClusterLiteral>
+			<NodeLabel AttachedTo="1971" Bounds="-137 427 30 15" Id="3677" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>PhyTxStart.req</p.Text>
+			</NodeLabel>
+			<ClusterLiteral Bounds="-277 500 87 338" DataType="@994571d7ace14f9890fc61a7d9a9cb39" Id="3001" Label="3713" p4:ControlDefinitionChecksum="9Qux5VxZisAir2+ISKItXBGgdWFJWsype3J1GyaOQww=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>False_0_0_0_0_0x0_0_False_</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyRxEnd.ind.gtype" />
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyRxEnd.ind.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<ClusterBehavior AutoArrange="ArrangeVertically" />
+				<Literal Bounds="2 20 25 15" DataType="Boolean" Id="3235be609b9b4c5ca80863c113e06987" Label="161ba563dc7549c2b01b802099b6fb2f">
+					<p.Data>False</p.Data>
+					<BooleanBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="3235be609b9b4c5ca80863c113e06987" Bounds="2 2 30 15" Id="161ba563dc7549c2b01b802099b6fb2f" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>valid</p.Text>
+				</NodeLabel>
+				<Literal Bounds="2 57 45 15" DataType="@a7a1d87d6224408c91591949772ae93c" Id="fd1c9e42eab74ac693f93f786cb43afe" Label="eb8e69f1813a4ef0b0ee5e92b21bf710" p4:ControlDefinitionChecksum="TkRLbKFVZXnoqzrrzqj+e0B+/VeRoXyeE96MGkzXhK0=">
+					<p.Data>0</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::RX Error.gtype" />
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::RX Error.gtype::ControlDefinition" />
+					</p4:p.TypeDefinitionTargets>
+					<EnumBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="fd1c9e42eab74ac693f93f786cb43afe" Bounds="2 39 30 15" Id="eb8e69f1813a4ef0b0ee5e92b21bf710" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>RX error</p.Text>
+				</NodeLabel>
+				<ClusterLiteral Bounds="2 94 66 232" DataType="@07b484cba8db4bbdb2c4fa414507e779" Id="f0ff0c394e8f4420b47f04e5fb81efa1" Label="4d4b9bde9a85497a92a79485fb5dd58f" p4:ControlDefinitionChecksum="fz9rkFzmO+0do5B7ASz1nVy1Ywm1mAs0mIBVE26n7wc=">
+					<p.Data>0_0_0_0x0_0_False_</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::RX Vector.gtype" />
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::RX Vector.gtype::ControlDefinition" />
+					</p4:p.TypeDefinitionTargets>
+					<ClusterBehavior AutoArrange="ArrangeVertically" />
+					<Literal Bounds="2 20 45 15" DataType="@b60dc357a30f4461b57b6a990de27d1c" Id="b39a23d5fc0c41a2b3a228ad53969b2a" Label="d924e5cb9e88405d92e99e0243cfb84e" p4:ControlDefinitionChecksum="bEz7DSrtzmXKyZE+ydYiEZmaFoP/SZhNZBdYnbkNMUs=">
+						<p.Data>0</p.Data>
+						<p4:p.TypeDefinitionTargets>
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY Frame Format.gtype" />
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY Frame Format.gtype::ControlDefinition" />
+						</p4:p.TypeDefinitionTargets>
+						<EnumBehavior />
+					</Literal>
+					<NodeLabel AttachedTo="b39a23d5fc0c41a2b3a228ad53969b2a" Bounds="2 2 30 15" Id="d924e5cb9e88405d92e99e0243cfb84e" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>format</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 57 45 15" DataType="@d0c5215e5af94f23af7abede09f40c51" Id="97dd1cea8c724e10a875dbcdd9704603" Label="734f4598eb384336a547882f629b90b4" p4:ControlDefinitionChecksum="L9hUg2V5jgnWFqVnGkkpMTCVQvXbkZ2PQJT9hD+Cq9E=">
+						<p.Data>0</p.Data>
+						<p4:p.TypeDefinitionTargets>
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::Bandwidth.gtype" />
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::Bandwidth.gtype::ControlDefinition" />
+						</p4:p.TypeDefinitionTargets>
+						<EnumBehavior />
+					</Literal>
+					<NodeLabel AttachedTo="97dd1cea8c724e10a875dbcdd9704603" Bounds="2 39 30 15" Id="734f4598eb384336a547882f629b90b4" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>bandwidth</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 94 40 15" DataType="UInt32" Id="8cf80d4736354eabaef656dd6c28d805" Label="a012b00136c5404593c6ed5ae0a5d48a">
+						<p.Data>0</p.Data>
+						<NumericBehavior Interpretation="Exact" ValueFormatter="LV:0" />
+					</Literal>
+					<NodeLabel AttachedTo="8cf80d4736354eabaef656dd6c28d805" Bounds="2 76 30 15" Id="a012b00136c5404593c6ed5ae0a5d48a" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>PSDU length</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 131 40 15" DataType="UFXP(4.0)" Id="33d3b6f495874777b9cfe1cf594b98f0" Label="8d5bf685ad1a43d3a5b3ddda52f2cf2f">
+						<p.Data>0x0</p.Data>
+						<NumericBehavior Interpretation="Exact" ValueFormatter="LVFXP:UFXP_4_0:" />
+					</Literal>
+					<NodeLabel AttachedTo="33d3b6f495874777b9cfe1cf594b98f0" Bounds="2 113 30 15" Id="8d5bf685ad1a43d3a5b3ddda52f2cf2f" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>MCS</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 168 45 15" DataType="@95f47bbd35cf428693868556bacf4939" Id="d3709d8b499a46caaf3706972a3a4457" Label="afd309d35b4a4ad3940ce8ceead87af4" p4:ControlDefinitionChecksum="QKBG2Ha6tyw7/mvMQBjZiB3KGxCA0t7WzTOQJ5azXfk=">
+						<p.Data>0</p.Data>
+						<p4:p.TypeDefinitionTargets>
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::Non HT Bandwidth.gtype" />
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::Non HT Bandwidth.gtype::ControlDefinition" />
+						</p4:p.TypeDefinitionTargets>
+						<EnumBehavior />
+					</Literal>
+					<NodeLabel AttachedTo="d3709d8b499a46caaf3706972a3a4457" Bounds="2 150 30 15" Id="afd309d35b4a4ad3940ce8ceead87af4" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>non HT bandwidth</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 205 25 15" DataType="Boolean" Id="ab89ef2d8624523a049e34eb17b13d4" Label="e6e9e9af1a8948baa2d6ad8818e39db3">
+						<p.Data>False</p.Data>
+						<BooleanBehavior />
+					</Literal>
+					<NodeLabel AttachedTo="ab89ef2d8624523a049e34eb17b13d4" Bounds="2 187 30 15" Id="e6e9e9af1a8948baa2d6ad8818e39db3" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>dynamic bandwidth support</p.Text>
+					</NodeLabel>
+				</ClusterLiteral>
+				<NodeLabel AttachedTo="f0ff0c394e8f4420b47f04e5fb81efa1" Bounds="2 76 30 15" Id="4d4b9bde9a85497a92a79485fb5dd58f" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>RX vector</p.Text>
+				</NodeLabel>
+			</ClusterLiteral>
+			<NodeLabel AttachedTo="3001" Bounds="-277 482 30 15" Id="3713" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>PhyRxEnd.ind</p.Text>
+			</NodeLabel>
+			<ClusterLiteral Bounds="-182 140 87 301" DataType="@79db959ef403478db83e27222bab2957" Id="3026" Label="3731" p4:ControlDefinitionChecksum="+QzJYOCrPUaX/ahOqmxm6KsdVXfVtyC7CL9WZvcw8w8=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0_0_0_0x0_0_False_False_</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyRxStart.ind.gtype" />
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PhyRxStart.ind.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<ClusterBehavior AutoArrange="ArrangeVertically" />
+				<ClusterLiteral Bounds="2 20 66 232" DataType="@07b484cba8db4bbdb2c4fa414507e779" Id="3a572dd15b394a0a9f2ec053161074e3" Label="76e0ecd3102b4aa4b44bfcd5dc610dc0" p4:ControlDefinitionChecksum="fz9rkFzmO+0do5B7ASz1nVy1Ywm1mAs0mIBVE26n7wc=">
+					<p.Data>0_0_0_0x0_0_False_</p.Data>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::RX Vector.gtype" />
+						<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::RX Vector.gtype::ControlDefinition" />
+					</p4:p.TypeDefinitionTargets>
+					<ClusterBehavior AutoArrange="ArrangeVertically" />
+					<Literal Bounds="2 20 45 15" DataType="@b60dc357a30f4461b57b6a990de27d1c" Id="7eeb73d9d3344fef810450de60d6fd44" Label="c05d11ab91a84384be570988dc5a4873" p4:ControlDefinitionChecksum="bEz7DSrtzmXKyZE+ydYiEZmaFoP/SZhNZBdYnbkNMUs=">
+						<p.Data>0</p.Data>
+						<p4:p.TypeDefinitionTargets>
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY Frame Format.gtype" />
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY Frame Format.gtype::ControlDefinition" />
+						</p4:p.TypeDefinitionTargets>
+						<EnumBehavior />
+					</Literal>
+					<NodeLabel AttachedTo="7eeb73d9d3344fef810450de60d6fd44" Bounds="2 2 30 15" Id="c05d11ab91a84384be570988dc5a4873" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>format</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 57 45 15" DataType="@d0c5215e5af94f23af7abede09f40c51" Id="c6c7ca42dda24167a14edf1f91227ae9" Label="4cd1653c145d42699433e5db3747466f" p4:ControlDefinitionChecksum="L9hUg2V5jgnWFqVnGkkpMTCVQvXbkZ2PQJT9hD+Cq9E=">
+						<p.Data>0</p.Data>
+						<p4:p.TypeDefinitionTargets>
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::Bandwidth.gtype" />
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::Bandwidth.gtype::ControlDefinition" />
+						</p4:p.TypeDefinitionTargets>
+						<EnumBehavior />
+					</Literal>
+					<NodeLabel AttachedTo="c6c7ca42dda24167a14edf1f91227ae9" Bounds="2 39 30 15" Id="4cd1653c145d42699433e5db3747466f" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>bandwidth</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 94 40 15" DataType="UInt32" Id="5f55d9834e704c14b240db43fb1e8835" Label="26e6fb4837d74dffa8065c55ed423887">
+						<p.Data>0</p.Data>
+						<NumericBehavior Interpretation="Exact" ValueFormatter="LV:0" />
+					</Literal>
+					<NodeLabel AttachedTo="5f55d9834e704c14b240db43fb1e8835" Bounds="2 76 30 15" Id="26e6fb4837d74dffa8065c55ed423887" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>PSDU length</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 131 40 15" DataType="UFXP(4.0)" Id="3d7a1b93efc64ad29c6249cae2d18ce9" Label="1c98c78524aa472fb2663ff4f0dd9f03">
+						<p.Data>0x0</p.Data>
+						<NumericBehavior Interpretation="Exact" ValueFormatter="LVFXP:UFXP_4_0:" />
+					</Literal>
+					<NodeLabel AttachedTo="3d7a1b93efc64ad29c6249cae2d18ce9" Bounds="2 113 30 15" Id="1c98c78524aa472fb2663ff4f0dd9f03" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>MCS</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 168 45 15" DataType="@95f47bbd35cf428693868556bacf4939" Id="f9fc0e4e289c47f4ada91c875790647f" Label="abfec291159a4bf096d129623e02e9b6" p4:ControlDefinitionChecksum="QKBG2Ha6tyw7/mvMQBjZiB3KGxCA0t7WzTOQJ5azXfk=">
+						<p.Data>0</p.Data>
+						<p4:p.TypeDefinitionTargets>
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::Non HT Bandwidth.gtype" />
+							<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::Non HT Bandwidth.gtype::ControlDefinition" />
+						</p4:p.TypeDefinitionTargets>
+						<EnumBehavior />
+					</Literal>
+					<NodeLabel AttachedTo="f9fc0e4e289c47f4ada91c875790647f" Bounds="2 150 30 15" Id="abfec291159a4bf096d129623e02e9b6" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>non HT bandwidth</p.Text>
+					</NodeLabel>
+					<Literal Bounds="2 205 25 15" DataType="Boolean" Id="8bb14e7e72624c59b50f1cfa8fde59f4" Label="478cc4a66e0a43f7a74d623eb6c4dec0">
+						<p.Data>False</p.Data>
+						<BooleanBehavior />
+					</Literal>
+					<NodeLabel AttachedTo="8bb14e7e72624c59b50f1cfa8fde59f4" Bounds="2 187 30 15" Id="478cc4a66e0a43f7a74d623eb6c4dec0" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>dynamic bandwidth support</p.Text>
+					</NodeLabel>
+				</ClusterLiteral>
+				<NodeLabel AttachedTo="3a572dd15b394a0a9f2ec053161074e3" Bounds="2 2 30 15" Id="76e0ecd3102b4aa4b44bfcd5dc610dc0" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>RX vector</p.Text>
+				</NodeLabel>
+				<Literal Bounds="2 274 25 15" DataType="Boolean" Id="c6e6f6c301dd406d83f17b9918f50e80" Label="2b3e516fc4a846d0a5b1af99045a15f2">
+					<p.Data>False</p.Data>
+					<BooleanBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="c6e6f6c301dd406d83f17b9918f50e80" Bounds="2 256 30 15" Id="2b3e516fc4a846d0a5b1af99045a15f2" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>valid</p.Text>
+				</NodeLabel>
+			</ClusterLiteral>
+			<NodeLabel AttachedTo="3026" Bounds="-182 122 30 15" Id="3731" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>PhyRxStart.ind</p.Text>
+			</NodeLabel>
+		</BlockDiagram>
+		<NativeFrontPanel AllowMaximize="[bool]False" EnforceMaximumSize="[bool]True" Height="[float]1600" Id="14" Left="[float]0" MaxHeight="[float]1600" MaxWidth="[float]2000" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000" WindowTitleOption="[WindowTitleOption]None">
+			<Cluster AutoArrange="[AutoArrange]ArrangeVertically" BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@bd8ffd78e3b7413caae10c61a5590763" Height="[float]448" Id="3386" IsTabStop="[bool]True" Label="[UIModel]3403" Left="[float]140" TabIndex="[int]0" Top="[float]469" Value="{DataItemBinding Id=3385}" Width="[float]179" p4:ControlDefinitionChecksum="4GMA9sOqCbeKH8ML29PEJeDezQexJEqqjX12KXcQTlo=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY SAP Ressources.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<FpgaNameControl BaseName="[string]FIFO" DataType="[Type]@454b2805d43743acbf51b8b7b64cc032" Height="[float]27" Id="4283" IsReadOnly="[bool]True" Label="[UIModel]4284" Left="[float]4" SelectedResource="{ClusterBinding FieldName=PSDU\ (RX)}" TabIndex="[int]0" Top="[float]24" UdrClass="[string]Fifo" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<p4:Label Height="[float]16" Id="4284" LabelOwner="[UIModel]4283" Left="[float]4" Text="[string]PSDU (RX)" Top="[float]4" Width="[float]55" />
+				<FpgaNameControl BaseName="[string]FIFO" DataType="[Type]@454b2805d43743acbf51b8b7b64cc032" Height="[float]27" Id="4285" IsReadOnly="[bool]True" Label="[UIModel]4286" Left="[float]4" SelectedResource="{ClusterBinding FieldName=PSDU\ (TX)}" TabIndex="[int]1" Top="[float]79" UdrClass="[string]Fifo" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<p4:Label Height="[float]16" Id="4286" LabelOwner="[UIModel]4285" Left="[float]4" Text="[string]PSDU (TX)" Top="[float]59" Width="[float]54" />
+				<FpgaNameControl BaseName="[string]Handshake" DataType="[Type]@1e578676e2ff49e4a5ddddd97f6f2511" Height="[float]27" Id="4287" IsReadOnly="[bool]True" Label="[UIModel]4288" Left="[float]4" SelectedResource="{ClusterBinding FieldName=PhyTxEnd.ind}" TabIndex="[int]2" Top="[float]134" UdrClass="[string]Handshake" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<p4:Label Height="[float]16" Id="4288" LabelOwner="[UIModel]4287" Left="[float]4" Text="[string]PhyTxEnd.ind" Top="[float]114" Width="[float]70" />
+				<FpgaNameControl BaseName="[string]Handshake" DataType="[Type]@4ba06520fe6b4b92bb7ad357a2f0a0e4" Height="[float]27" Id="4289" IsReadOnly="[bool]True" Label="[UIModel]4290" Left="[float]4" SelectedResource="{ClusterBinding FieldName=PhyTxStart.req}" TabIndex="[int]3" Top="[float]189" UdrClass="[string]Handshake" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<p4:Label Height="[float]16" Id="4290" LabelOwner="[UIModel]4289" Left="[float]4" Text="[string]PhyTxStart.req" Top="[float]169" Width="[float]76" />
+				<FpgaNameControl BaseName="[string]Handshake" DataType="[Type]@7362c9e4654543709f368fd335b12bc1" Height="[float]27" Id="4291" IsReadOnly="[bool]True" Label="[UIModel]4292" Left="[float]4" SelectedResource="{ClusterBinding FieldName=PhyRxStart.ind}" TabIndex="[int]4" Top="[float]244" UdrClass="[string]Handshake" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<p4:Label Height="[float]16" Id="4292" LabelOwner="[UIModel]4291" Left="[float]4" Text="[string]PhyRxStart.ind" Top="[float]224" Width="[float]76" />
+				<FpgaNameControl BaseName="[string]Handshake" DataType="[Type]@bb58922603fd4cfe86b007d6a77bdb1d" Height="[float]27" Id="4293" IsReadOnly="[bool]True" Label="[UIModel]4294" Left="[float]4" SelectedResource="{ClusterBinding FieldName=PHY\ CCA\ indication}" TabIndex="[int]5" Top="[float]299" UdrClass="[string]Handshake" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<p4:Label Height="[float]16" Id="4294" LabelOwner="[UIModel]4293" Left="[float]4" Text="[string]PHY CCA indication" Top="[float]279" Width="[float]103" />
+				<FpgaNameControl BaseName="[string]Handshake" DataType="[Type]@2a6532e883594c96a3805034006a2717" Height="[float]27" Id="4295" IsReadOnly="[bool]True" Label="[UIModel]4296" Left="[float]4" SelectedResource="{ClusterBinding FieldName=PhyRxEnd.ind}" TabIndex="[int]6" Top="[float]354" UdrClass="[string]Handshake" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<p4:Label Height="[float]16" Id="4296" LabelOwner="[UIModel]4295" Left="[float]4" Text="[string]PhyRxEnd.ind" Top="[float]334" Width="[float]71" />
+				<FpgaNameControl BaseName="[string]FIFO" DataType="[Type]@5d3849f63eae431584255eb00c2cf11f" Height="[float]27" Id="4297" IsReadOnly="[bool]True" Label="[UIModel]4298" Left="[float]4" SelectedResource="{ClusterBinding FieldName=PHY\ RX\ gain\ change\ indication}" TabIndex="[int]7" Top="[float]409" UdrClass="[string]Fifo" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<p4:Label Height="[float]16" Id="4298" LabelOwner="[UIModel]4297" Left="[float]4" Text="[string]PHY RX gain change indication" Top="[float]389" Width="[float]163" />
+			</Cluster>
+			<Label Height="[float]16" Id="3403" LabelOwner="[UIModel]3386" Left="[float]140" Text="[string]PHY SAP resources" Top="[float]449" Width="[float]37" xmlns="http://www.ni.com/PanelCommon" />
+			<Cluster AutoArrange="[AutoArrange]ArrangeVertically" BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@8ab04597ef684144a5efe12ad0520a08" Height="[float]448" Id="3565" IsTabStop="[bool]True" Label="[UIModel]3582" Left="[float]384" TabIndex="[int]1" Top="[float]464" Value="{DataItemBinding Id=3564}" Width="[float]166" p4:ControlDefinitionChecksum="KHvlyL4mc/P4FfCLfOsbUKv9eY3at3gszI2vIO46cSg=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="AFW::802_11::Types::FPGA Resources.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<FpgaNameControl BaseName="[string]Register" DataType="[Type]@340eeba9a2174f02b9a9f7a59901433a" Height="[float]27" Id="4302" IsReadOnly="[bool]True" Label="[UIModel]4309" Left="[float]4" SelectedResource="{ClusterBinding FieldName=global\ timestamp}" TabIndex="[int]0" Top="[float]24" UdrClass="[string]Register" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<FpgaNameControl BaseName="[string]Register" DataType="[Type]@fe727365e16a43739fc579617e572605" Height="[float]27" Id="4303" IsReadOnly="[bool]True" Label="[UIModel]4310" Left="[float]4" SelectedResource="{ClusterBinding FieldName=OFDM\ symbol\ pulse}" TabIndex="[int]1" Top="[float]79" UdrClass="[string]Register" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<FpgaNameControl BaseName="[string]Register" DataType="[Type]@fe727365e16a43739fc579617e572605" Height="[float]27" Id="4304" IsReadOnly="[bool]True" Label="[UIModel]4311" Left="[float]4" SelectedResource="{ClusterBinding FieldName=TX\ active}" TabIndex="[int]2" Top="[float]134" UdrClass="[string]Register" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<FpgaNameControl BaseName="[string]FIFO" DataType="[Type]@7f56305224174c13b6c48f636677ecd8" Height="[float]27" Id="4305" IsReadOnly="[bool]True" Label="[UIModel]4312" Left="[float]4" SelectedResource="{ClusterBinding FieldName=RF\ to\ RX\ FIFO}" TabIndex="[int]3" Top="[float]189" UdrClass="[string]Fifo" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<FpgaNameControl BaseName="[string]FIFO" DataType="[Type]@7f56305224174c13b6c48f636677ecd8" Height="[float]27" Id="4306" IsReadOnly="[bool]True" Label="[UIModel]4313" Left="[float]4" SelectedResource="{ClusterBinding FieldName=internal\ loopback\ FIFO}" TabIndex="[int]4" Top="[float]244" UdrClass="[string]Fifo" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<FpgaNameControl BaseName="[string]FIFO" DataType="[Type]@7f56305224174c13b6c48f636677ecd8" Height="[float]27" Id="4307" IsReadOnly="[bool]True" Label="[UIModel]4314" Left="[float]4" SelectedResource="{ClusterBinding FieldName=TX\ to\ RF\ FIFO}" TabIndex="[int]5" Top="[float]299" UdrClass="[string]Fifo" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<FpgaNameControl BaseName="[string]FIFO" DataType="[Type]@6b9d4459e37646d5bda3d38ecefef7b6" Height="[float]27" Id="4308" IsReadOnly="[bool]True" Label="[UIModel]4315" Left="[float]4" SelectedResource="{ClusterBinding FieldName=Gain\ Settings\ FIFO}" TabIndex="[int]6" Top="[float]354" UdrClass="[string]Fifo" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<p4:Label Height="[float]16" Id="4309" LabelOwner="[UIModel]4302" Left="[float]4" Text="[string]global timestamp" Top="[float]4" Width="[float]93" />
+				<p4:Label Height="[float]16" Id="4310" LabelOwner="[UIModel]4303" Left="[float]4" Text="[string]OFDM symbol pulse" Top="[float]59" Width="[float]107" />
+				<p4:Label Height="[float]16" Id="4311" LabelOwner="[UIModel]4304" Left="[float]4" Text="[string]TX active" Top="[float]114" Width="[float]47" />
+				<p4:Label Height="[float]16" Id="4312" LabelOwner="[UIModel]4305" Left="[float]4" Text="[string]RF to RX FIFO" Top="[float]169" Width="[float]72" />
+				<p4:Label Height="[float]16" Id="4313" LabelOwner="[UIModel]4306" Left="[float]4" Text="[string]internal loopback FIFO" Top="[float]224" Width="[float]119" />
+				<p4:Label Height="[float]16" Id="4314" LabelOwner="[UIModel]4307" Left="[float]4" Text="[string]TX to RF FIFO" Top="[float]279" Width="[float]71" />
+				<p4:Label Height="[float]16" Id="4315" LabelOwner="[UIModel]4308" Left="[float]4" Text="[string]Gain Settings FIFO" Top="[float]334" Width="[float]97" />
+				<FpgaNameControl BaseName="[string]Register" DataType="[Type]@9e0c2fd21ad34168a81b7a713624d838" Height="[float]27" Id="4316" IsReadOnly="[bool]True" Label="[UIModel]4317" Left="[float]4" SelectedResource="{ClusterBinding FieldName=shared\ properties}" TabIndex="[int]7" Top="[float]409" UdrClass="[string]Register" UdrNamespace="[string]FPGA" Width="[float]150" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+				<p4:Label Height="[float]16" Id="4317" LabelOwner="[UIModel]4316" Left="[float]4" Text="[string]shared properties" Top="[float]389" Width="[float]93" />
+			</Cluster>
+			<Label Height="[float]16" Id="3582" LabelOwner="[UIModel]3565" Left="[float]384" Text="[string]registers and FIFO resources" Top="[float]444" Width="[float]56" xmlns="http://www.ni.com/PanelCommon" />
+			<PanelExecutionWindow Id="3623" />
+		</NativeFrontPanel>
+		<DataItem CallDirection="Output" CallIndex="1" DataType="@bd8ffd78e3b7413caae10c61a5590763" Id="3385" Name="PHY SAP resources" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>
+				<Cluster>
+					<Field1>""</Field1>
+					<Field2>""</Field2>
+					<Field3>""</Field3>
+					<Field4>""</Field4>
+					<Field5>""</Field5>
+					<Field6>""</Field6>
+					<Field7>""</Field7>
+					<Field8>""</Field8>
+				</Cluster>
+			</p.DefaultValue>
+			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+				<TypeDefinitionTarget TargetName="AFW::802_11::Types::PHY SAP Ressources.gtype" />
+			</p.TypeDefinitionTargets>
+			<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">&lt;p&gt;Created PHY service access point resources.&lt;/p&gt;</p.UserDescription>
+		</DataItem>
+		<DataItem CallDirection="Output" CallIndex="0" DataType="@8ab04597ef684144a5efe12ad0520a08" Id="3564" Name="registers and FIFO resources" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>
+				<Cluster>
+					<Field1>""</Field1>
+					<Field2>""</Field2>
+					<Field3>""</Field3>
+					<Field4>""</Field4>
+					<Field5>""</Field5>
+					<Field6>""</Field6>
+					<Field7>""</Field7>
+					<Field8>""</Field8>
+				</Cluster>
+			</p.DefaultValue>
+			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+				<TypeDefinitionTarget TargetName="AFW::802_11::Types::FPGA Resources.gtype" />
+			</p.TypeDefinitionTargets>
+			<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">&lt;p&gt;Created register and FIFO resources.&lt;/p&gt;</p.UserDescription>
+		</DataItem>
+	</VirtualInstrument>
+	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="8ab04597ef684144a5efe12ad0520a08">
+			<Attributed AttributedType="@e4927d3878f841d4a471eb80ede797b3">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="340eeba9a2174f02b9a9f7a59901433a">
+			<Attributed AttributedType="@42e00e412d89428b882518130985578c">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Register" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="fe727365e16a43739fc579617e572605">
+			<Attributed AttributedType="@5c0bbf10432748cb9a31267a28a14f33">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Register" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="9e0c2fd21ad34168a81b7a713624d838">
+			<Attributed AttributedType="@0fc3ba5dae3341b297749e7e7fc250ce">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Register" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7f56305224174c13b6c48f636677ecd8">
+			<Attributed AttributedType="@f4538235f1af4fdb8a580efe33f1558a">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="6b9d4459e37646d5bda3d38ecefef7b6">
+			<Attributed AttributedType="@2fa2880171ff4d46958dd7ebd96f7259">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="bd8ffd78e3b7413caae10c61a5590763">
+			<Attributed AttributedType="@7442cff921214cc6963edeb37999a489">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="454b2805d43743acbf51b8b7b64cc032">
+			<Attributed AttributedType="@2fa0770f389a41feb9a8d36299306fb6">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="1e578676e2ff49e4a5ddddd97f6f2511">
+			<Attributed AttributedType="@173781ec17034660bca5c09f3bfa71ac">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Handshake" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="4ba06520fe6b4b92bb7ad357a2f0a0e4">
+			<Attributed AttributedType="@f4940737f7594a47b085b4df85c5defe">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Handshake" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7362c9e4654543709f368fd335b12bc1">
+			<Attributed AttributedType="@4df006e11a454d93ab6210a62afcc6c8">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Handshake" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="bb58922603fd4cfe86b007d6a77bdb1d">
+			<Attributed AttributedType="@fec18301118143c086683103d05431f9">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Handshake" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="2a6532e883594c96a3805034006a2717">
+			<Attributed AttributedType="@d38f0df55b4e4ca6b0f68dc59eed92fa">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Handshake" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="5d3849f63eae431584255eb00c2cf11f">
+			<Attributed AttributedType="@50f537cfc51341a7bd6d255e456cf8dd">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="95bb5e3d1ff645e89793f7c675ca6ee5">
+			<Attributed AttributedType="@351b4113ca4e4c73b9d2b239f616f816">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="4bfc10d1607344ca8c5a9108a4f7b672">
+			<Attributed AttributedType="@b52be018a1704587bfa84fd8d76f0c91">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="15a8451037184a92a4852bd5101e2482">
+			<Attributed AttributedType="@dabb01cc5d2e455bb0af7c7564975a93">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="8aa8a3af850d464ab83369f776136a09">
+			<Attributed AttributedType="@1e5dcac440ac48919a55c3c87f44d4c0">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="35f8cdeb470b4bc0ba092d9519980a02">
+			<Attributed AttributedType="@121d25b20e884188aab5865f0f551682">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="b3c2db34cdd544ea83c5280523e46fcb">
+			<Attributed AttributedType="@c1e5004efe744c5b8d94f444f1045a26">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="48871bc03bf448eab1ef9f0ba4c979a2">
+			<Attributed AttributedType="@bd5e9e68ecec480a9d1ceed0901757e3">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="912aea7c41d14742a6f099b6deaa75fc">
+			<Attributed AttributedType="@276ebfaa4b1d414e86b88c1737f36203">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="b60dc357a30f4461b57b6a990de27d1c">
+			<Attributed AttributedType="@721fe3150c3246d4a0b0b90d2a1967d1">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="d0c5215e5af94f23af7abede09f40c51">
+			<Attributed AttributedType="@b7e1748e12994b9a8715dd3ed12d6831">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="994571d7ace14f9890fc61a7d9a9cb39">
+			<Attributed AttributedType="@cb304e025e0b4a7a985c1ad0ff76e61b">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="a7a1d87d6224408c91591949772ae93c">
+			<Attributed AttributedType="@f97ec8fe19fa408a80165e185e536469">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="07b484cba8db4bbdb2c4fa414507e779">
+			<Attributed AttributedType="@6887feab88dd4d8b9d4a4c7c2f2d4af2">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="95f47bbd35cf428693868556bacf4939">
+			<Attributed AttributedType="@4344a954a76e48cbbb589e3ceb946a17">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="79db959ef403478db83e27222bab2957">
+			<Attributed AttributedType="@b242a54c879447c2a78d2ba28152751d">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AFW::802_11::Types" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="e4927d3878f841d4a471eb80ede797b3">
+			<Typedef TypedefName="FPGA Resources.gtype" UnderlyingType="@5c9c0e8a463d4d8295c3fa01625a48ef" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="42e00e412d89428b882518130985578c">
+			<Composite Id="1" Name="RegisterDataType" ReferenceClass="" GenericTypeDefinition="@902b8d5f01164bba9feb9a2bd5715484">
+				<ClosedGenericParameters>
+					<TypeRef>UInt32</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="5c0bbf10432748cb9a31267a28a14f33">
+			<Composite Id="1" Name="RegisterDataType" ReferenceClass="" GenericTypeDefinition="@902b8d5f01164bba9feb9a2bd5715484">
+				<ClosedGenericParameters>
+					<TypeRef>Boolean</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="0fc3ba5dae3341b297749e7e7fc250ce">
+			<Composite Id="1" Name="RegisterDataType" ReferenceClass="" GenericTypeDefinition="@902b8d5f01164bba9feb9a2bd5715484">
+				<ClosedGenericParameters>
+					<TypeRef>@95bb5e3d1ff645e89793f7c675ca6ee5</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="f4538235f1af4fdb8a580efe33f1558a">
+			<Generic>
+				<Constraints>
+					<TypeRef>@e1befc4f76f24f8393b6a860efe94dfb</TypeRef>
+					<TypeRef>@fbe55846bbad41f1afb00c99776d1fe0</TypeRef>
+				</Constraints>
+			</Generic>
+		</p.TypeReference>
+		<p.TypeReference TypeId="2fa2880171ff4d46958dd7ebd96f7259">
+			<Generic>
+				<Constraints>
+					<TypeRef>@1c0c1cff953c467c96e404b0a4e428a1</TypeRef>
+					<TypeRef>@9858ca50751e4603b48b55b175e54cc6</TypeRef>
+					<TypeRef>@c18166659b8745b5a800645d4ef1891a</TypeRef>
+				</Constraints>
+			</Generic>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7442cff921214cc6963edeb37999a489">
+			<Typedef TypedefName="PHY SAP Ressources.gtype" UnderlyingType="@a01057efa0304217a276af251cf84afc" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="2fa0770f389a41feb9a8d36299306fb6">
+			<Generic>
+				<Constraints>
+					<TypeRef>@007514ccb9e9455c9becc6a7f8cf3563</TypeRef>
+					<TypeRef>@168fc307e924468082f69191d0f659f6</TypeRef>
+					<TypeRef>@4156277a5afc4190a1628d9850aee8d1</TypeRef>
+				</Constraints>
+			</Generic>
+		</p.TypeReference>
+		<p.TypeReference TypeId="173781ec17034660bca5c09f3bfa71ac">
+			<Composite Id="1" Name="HandshakeDataType" ReferenceClass="" GenericTypeDefinition="@0ecbc0e42cd248c6a4ec358d6740bbae">
+				<ClosedGenericParameters>
+					<TypeRef>@15a8451037184a92a4852bd5101e2482</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="f4940737f7594a47b085b4df85c5defe">
+			<Composite Id="1" Name="HandshakeDataType" ReferenceClass="" GenericTypeDefinition="@0ecbc0e42cd248c6a4ec358d6740bbae">
+				<ClosedGenericParameters>
+					<TypeRef>@48871bc03bf448eab1ef9f0ba4c979a2</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="4df006e11a454d93ab6210a62afcc6c8">
+			<Composite Id="1" Name="HandshakeDataType" ReferenceClass="" GenericTypeDefinition="@0ecbc0e42cd248c6a4ec358d6740bbae">
+				<ClosedGenericParameters>
+					<TypeRef>@79db959ef403478db83e27222bab2957</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="fec18301118143c086683103d05431f9">
+			<Composite Id="1" Name="HandshakeDataType" ReferenceClass="" GenericTypeDefinition="@0ecbc0e42cd248c6a4ec358d6740bbae">
+				<ClosedGenericParameters>
+					<TypeRef>@8aa8a3af850d464ab83369f776136a09</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="d38f0df55b4e4ca6b0f68dc59eed92fa">
+			<Composite Id="1" Name="HandshakeDataType" ReferenceClass="" GenericTypeDefinition="@0ecbc0e42cd248c6a4ec358d6740bbae">
+				<ClosedGenericParameters>
+					<TypeRef>@994571d7ace14f9890fc61a7d9a9cb39</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="50f537cfc51341a7bd6d255e456cf8dd">
+			<Generic>
+				<Constraints>
+					<TypeRef>@90622ca64e2248cfa21a1999da35248b</TypeRef>
+					<TypeRef>@d6e93f66e5aa43a2830b75c8793ac75d</TypeRef>
+					<TypeRef>@25c1447f1fa1470d8b513faeb1d31735</TypeRef>
+				</Constraints>
+			</Generic>
+		</p.TypeReference>
+		<p.TypeReference TypeId="351b4113ca4e4c73b9d2b239f616f816">
+			<Typedef TypedefName="FPGA Shared Properties.gtype" UnderlyingType="@67423aa7477a4339a9adb9b97456bfdc" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b52be018a1704587bfa84fd8d76f0c91">
+			<Typedef TypedefName="AGC Event.gtype" UnderlyingType="@09c4aab01a174ff1ab480fd93b0bab5b" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="dabb01cc5d2e455bb0af7c7564975a93">
+			<Typedef TypedefName="PhyTxEnd.ind.gtype" UnderlyingType="@70ff2ad3c4864a48994b655d1a9e12ae" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="1e5dcac440ac48919a55c3c87f44d4c0">
+			<Typedef TypedefName="PHY CCA Indication.gtype" UnderlyingType="@42efd008aaf448ddb3d89812204d2320" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="121d25b20e884188aab5865f0f551682">
+			<Typedef TypedefName="CCA Indication Channel List Element.gtype" UnderlyingType="@9bae8c148d494c2c96cbbdd8f5db5c92" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="c1e5004efe744c5b8d94f444f1045a26">
+			<Typedef TypedefName="AGC State.gtype" UnderlyingType="@f883fc89ae7a4511bd635e4b572b1e8c" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="bd5e9e68ecec480a9d1ceed0901757e3">
+			<Typedef TypedefName="PhyTxStart.req.gtype" UnderlyingType="@2c45e57913d74f36aab26ac4d62bea89" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="276ebfaa4b1d414e86b88c1737f36203">
+			<Typedef TypedefName="TX Vector.gtype" UnderlyingType="@f6f5230cd5e745c39ef1d269a6dd5f01" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="721fe3150c3246d4a0b0b90d2a1967d1">
+			<Typedef TypedefName="PHY Frame Format.gtype" UnderlyingType="@a5f29e5861ea443e90548903f8bb4875" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b7e1748e12994b9a8715dd3ed12d6831">
+			<Typedef TypedefName="Bandwidth.gtype" UnderlyingType="@7c127206e9ef4979b4f635e3cbf756e7" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="cb304e025e0b4a7a985c1ad0ff76e61b">
+			<Typedef TypedefName="PhyRxEnd.ind.gtype" UnderlyingType="@6c2cc58a8f154ceb8f1c4a12f74acff3" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="f97ec8fe19fa408a80165e185e536469">
+			<Typedef TypedefName="RX Error.gtype" UnderlyingType="@c5da99164401488db7de54418e7f1285" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="6887feab88dd4d8b9d4a4c7c2f2d4af2">
+			<Typedef TypedefName="RX Vector.gtype" UnderlyingType="@3d7b8c448014437aa5d46022a6b23477" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="4344a954a76e48cbbb589e3ceb946a17">
+			<Typedef TypedefName="Non HT Bandwidth.gtype" UnderlyingType="@fc501e8e2cc7414c8e64992ddbd00a76" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b242a54c879447c2a78d2ba28152751d">
+			<Typedef TypedefName="PhyRxStart.ind.gtype" UnderlyingType="@f31908e54f36403c90a95c449e14c7b7" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="5c9c0e8a463d4d8295c3fa01625a48ef">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="global timestamp" DataType="@340eeba9a2174f02b9a9f7a59901433a" />
+					<Field FieldAccessPolicy="ReadWrite" Name="OFDM symbol pulse" DataType="@fe727365e16a43739fc579617e572605" />
+					<Field FieldAccessPolicy="ReadWrite" Name="TX active" DataType="@fe727365e16a43739fc579617e572605" />
+					<Field FieldAccessPolicy="ReadWrite" Name="RF to RX FIFO" DataType="@7f56305224174c13b6c48f636677ecd8" />
+					<Field FieldAccessPolicy="ReadWrite" Name="internal loopback FIFO" DataType="@7f56305224174c13b6c48f636677ecd8" />
+					<Field FieldAccessPolicy="ReadWrite" Name="TX to RF FIFO" DataType="@7f56305224174c13b6c48f636677ecd8" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Gain Settings FIFO" DataType="@6b9d4459e37646d5bda3d38ecefef7b6" />
+					<Field FieldAccessPolicy="ReadWrite" Name="shared properties" DataType="@9e0c2fd21ad34168a81b7a713624d838" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="902b8d5f01164bba9feb9a2bd5715484">
+			<Attributed AttributedType="@81ad2eb6dfba4feaae5c49aa669a3764">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Register" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="e1befc4f76f24f8393b6a860efe94dfb">
+			<Attributed AttributedType="@6bc2f2b16b044341850cdf574636cd36">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="fbe55846bbad41f1afb00c99776d1fe0">
+			<Attributed AttributedType="@32c43dfd8a574e7681b3bbe43a4a954b">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="1c0c1cff953c467c96e404b0a4e428a1">
+			<Attributed AttributedType="@3496eb0280194d3784156f5f9becf853">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="9858ca50751e4603b48b55b175e54cc6">
+			<Attributed AttributedType="@d4703d68ecc64d85b2a4b4f6685f1528">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="c18166659b8745b5a800645d4ef1891a">
+			<Attributed AttributedType="@0b536a6ee0f2440181fd5cf245f53999">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="a01057efa0304217a276af251cf84afc">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="PSDU (RX)" DataType="@454b2805d43743acbf51b8b7b64cc032" />
+					<Field FieldAccessPolicy="ReadWrite" Name="PSDU (TX)" DataType="@454b2805d43743acbf51b8b7b64cc032" />
+					<Field FieldAccessPolicy="ReadWrite" Name="PhyTxEnd.ind" DataType="@1e578676e2ff49e4a5ddddd97f6f2511" />
+					<Field FieldAccessPolicy="ReadWrite" Name="PhyTxStart.req" DataType="@4ba06520fe6b4b92bb7ad357a2f0a0e4" />
+					<Field FieldAccessPolicy="ReadWrite" Name="PhyRxStart.ind" DataType="@7362c9e4654543709f368fd335b12bc1" />
+					<Field FieldAccessPolicy="ReadWrite" Name="PHY CCA indication" DataType="@bb58922603fd4cfe86b007d6a77bdb1d" />
+					<Field FieldAccessPolicy="ReadWrite" Name="PhyRxEnd.ind" DataType="@2a6532e883594c96a3805034006a2717" />
+					<Field FieldAccessPolicy="ReadWrite" Name="PHY RX gain change indication" DataType="@5d3849f63eae431584255eb00c2cf11f" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="007514ccb9e9455c9becc6a7f8cf3563">
+			<Attributed AttributedType="@52bb78eab48345059aeb658a78be395f">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="168fc307e924468082f69191d0f659f6">
+			<Attributed AttributedType="@8251873327e94537a7c57a369efe0922">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="4156277a5afc4190a1628d9850aee8d1">
+			<Attributed AttributedType="@d4645e563b2d4fd8a87ea61eee3b39e3">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="0ecbc0e42cd248c6a4ec358d6740bbae">
+			<Attributed AttributedType="@59f2cc3149524c36b2f650e27946e9e4">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Handshake" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="90622ca64e2248cfa21a1999da35248b">
+			<Attributed AttributedType="@771ec19d0a50421b99d778ef7709e11b">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="d6e93f66e5aa43a2830b75c8793ac75d">
+			<Attributed AttributedType="@abefb707c24543bb8cd2bfef03e0da19">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="25c1447f1fa1470d8b513faeb1d31735">
+			<Attributed AttributedType="@43526131da4d4fcfbaea9c2b858ad0c4">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="67423aa7477a4339a9adb9b97456bfdc">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="primary channel selector" DataType="UFXP(2.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="device MAC address" DataType="UInt8[6]" />
+					<Field FieldAccessPolicy="ReadWrite" Name="device bandwidth" DataType="UInt16" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="09c4aab01a174ff1ab480fd93b0bab5b">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="gain" DataType="UFXP(6.1)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="state" DataType="@b3c2db34cdd544ea83c5280523e46fcb" />
+					<Field FieldAccessPolicy="ReadWrite" Name="valid" DataType="Boolean" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="70ff2ad3c4864a48994b655d1a9e12ae">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="unsupported mode" DataType="Boolean" />
+					<Field FieldAccessPolicy="ReadWrite" Name="scrambler seed" DataType="UFXP(7.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="valid" DataType="Boolean" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="42efd008aaf448ddb3d89812204d2320">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="busy" DataType="Boolean" />
+					<Field FieldAccessPolicy="ReadWrite" Name="channel list" DataType="@35f8cdeb470b4bc0ba092d9519980a02" />
+					<Field FieldAccessPolicy="ReadWrite" Name="valid" DataType="Boolean" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="9bae8c148d494c2c96cbbdd8f5db5c92">
+			<Enumeration>
+				<Members>
+					<EnumerationMember Value="0" Name="none" />
+					<EnumerationMember Value="1" Name="primary" />
+					<EnumerationMember Value="2" Name="secondary" />
+					<EnumerationMember Value="3" Name="secondary40" />
+				</Members>
+				<DataType>UInt8</DataType>
+			</Enumeration>
+		</p.TypeReference>
+		<p.TypeReference TypeId="f883fc89ae7a4511bd635e4b572b1e8c">
+			<Enumeration>
+				<Members>
+					<EnumerationMember Value="0" Name="Idle" />
+					<EnumerationMember Value="1" Name="maximum gain" />
+					<EnumerationMember Value="2" Name="wait for measurement" />
+					<EnumerationMember Value="3" Name="gain set" />
+					<EnumerationMember Value="4" Name="gain locked" />
+					<EnumerationMember Value="5" Name="wait for channel clearance" />
+				</Members>
+				<DataType>UInt8</DataType>
+			</Enumeration>
+		</p.TypeReference>
+		<p.TypeReference TypeId="2c45e57913d74f36aab26ac4d62bea89">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="TX vector" DataType="@912aea7c41d14742a6f099b6deaa75fc" />
+					<Field FieldAccessPolicy="ReadWrite" Name="valid" DataType="Boolean" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="f6f5230cd5e745c39ef1d269a6dd5f01">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="format" DataType="@b60dc357a30f4461b57b6a990de27d1c" />
+					<Field FieldAccessPolicy="ReadWrite" Name="bandwidth" DataType="@d0c5215e5af94f23af7abede09f40c51" />
+					<Field FieldAccessPolicy="ReadWrite" Name="PSDU length" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="(A-)MPDU length" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="MCS" DataType="UFXP(4.0)" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="a5f29e5861ea443e90548903f8bb4875">
+			<Enumeration>
+				<Members>
+					<EnumerationMember Value="0" Name="NON_HT_OFDM" />
+					<EnumerationMember Value="1" Name="VHT" />
+					<EnumerationMember Value="2" Name="NON_HT_DUP_OFDM" />
+				</Members>
+				<DataType>UInt8</DataType>
+			</Enumeration>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7c127206e9ef4979b4f635e3cbf756e7">
+			<Enumeration>
+				<Members>
+					<EnumerationMember Value="0" Name="20 MHz" />
+					<EnumerationMember Value="1" Name="40 MHz" />
+					<EnumerationMember Value="2" Name="80 MHz" />
+				</Members>
+				<DataType>UInt8</DataType>
+			</Enumeration>
+		</p.TypeReference>
+		<p.TypeReference TypeId="6c2cc58a8f154ceb8f1c4a12f74acff3">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="valid" DataType="Boolean" />
+					<Field FieldAccessPolicy="ReadWrite" Name="RX error" DataType="@a7a1d87d6224408c91591949772ae93c" />
+					<Field FieldAccessPolicy="ReadWrite" Name="RX vector" DataType="@07b484cba8db4bbdb2c4fa414507e779" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="c5da99164401488db7de54418e7f1285">
+			<Enumeration>
+				<Members>
+					<EnumerationMember Value="0" Name="NoError" />
+					<EnumerationMember Value="1" Name="CarrierLost" />
+					<EnumerationMember Value="2" Name="FormatViolation" />
+					<EnumerationMember Value="3" Name="UnsupportedRate" />
+					<EnumerationMember Value="4" Name="Filtered" />
+				</Members>
+				<DataType>UInt8</DataType>
+			</Enumeration>
+		</p.TypeReference>
+		<p.TypeReference TypeId="3d7b8c448014437aa5d46022a6b23477">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="format" DataType="@b60dc357a30f4461b57b6a990de27d1c" />
+					<Field FieldAccessPolicy="ReadWrite" Name="bandwidth" DataType="@d0c5215e5af94f23af7abede09f40c51" />
+					<Field FieldAccessPolicy="ReadWrite" Name="PSDU length" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="MCS" DataType="UFXP(4.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="non HT bandwidth" DataType="@95f47bbd35cf428693868556bacf4939" />
+					<Field FieldAccessPolicy="ReadWrite" Name="dynamic bandwidth support" DataType="Boolean" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="fc501e8e2cc7414c8e64992ddbd00a76">
+			<Enumeration>
+				<Members>
+					<EnumerationMember Value="0" Name="20 MHz" />
+					<EnumerationMember Value="1" Name="40 MHz" />
+					<EnumerationMember Value="2" Name="80 MHz" />
+					<EnumerationMember Value="3" Name="160 MHz" />
+				</Members>
+				<DataType>UInt8</DataType>
+			</Enumeration>
+		</p.TypeReference>
+		<p.TypeReference TypeId="f31908e54f36403c90a95c449e14c7b7">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="RX vector" DataType="@07b484cba8db4bbdb2c4fa414507e779" />
+					<Field FieldAccessPolicy="ReadWrite" Name="valid" DataType="Boolean" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="81ad2eb6dfba4feaae5c49aa669a3764">
+			<Composite Id="1" Name="RegisterDataType" ReferenceClass="" GenericTypeDefinition="@902b8d5f01164bba9feb9a2bd5715484">
+				<GenericParameters>
+					<Generic GenericName="Element" />
+				</GenericParameters>
+				<BaseType>Void</BaseType>
+				<Members>
+					<Function Id="2" IsStatic="False" IsConstructor="False" Name="Read" ReturnType="Void" DeclaringType="@902b8d5f01164bba9feb9a2bd5715484" GenericTypeDefinition="Void" />
+					<Function Id="3" IsStatic="False" IsConstructor="False" Name="Write" ReturnType="Void" DeclaringType="@902b8d5f01164bba9feb9a2bd5715484" GenericTypeDefinition="Void" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="6bc2f2b16b044341850cdf574636cd36">
+			<Composite Id="1" Name="FifoReadInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@558b1f9fdfd34fa1a5fabaa003b2bccc">
+				<ClosedGenericParameters>
+					<TypeRef>CFXP(3.13)</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="32c43dfd8a574e7681b3bbe43a4a954b">
+			<Composite Id="1" Name="FifoWriteInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@7bba30ba768940e8bad37ad69a463714">
+				<ClosedGenericParameters>
+					<TypeRef>CFXP(3.13)</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="3496eb0280194d3784156f5f9becf853">
+			<Composite Id="1" Name="FifoReadInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@558b1f9fdfd34fa1a5fabaa003b2bccc">
+				<ClosedGenericParameters>
+					<TypeRef>UFXP(5.1)</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="d4703d68ecc64d85b2a4b4f6685f1528">
+			<Composite Id="1" Name="FifoWriteInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@7bba30ba768940e8bad37ad69a463714">
+				<ClosedGenericParameters>
+					<TypeRef>UFXP(5.1)</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="0b536a6ee0f2440181fd5cf245f53999">
+			<Composite Id="1" Name="FifoClearInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@931c98a62b1c4960811c903cbd8f444c">
+				<ClosedGenericParameters>
+					<TypeRef>UFXP(5.1)</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="52bb78eab48345059aeb658a78be395f">
+			<Composite Id="1" Name="FifoReadInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@558b1f9fdfd34fa1a5fabaa003b2bccc">
+				<ClosedGenericParameters>
+					<TypeRef>UInt8</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="8251873327e94537a7c57a369efe0922">
+			<Composite Id="1" Name="FifoWriteInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@7bba30ba768940e8bad37ad69a463714">
+				<ClosedGenericParameters>
+					<TypeRef>UInt8</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="d4645e563b2d4fd8a87ea61eee3b39e3">
+			<Composite Id="1" Name="FifoClearInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@931c98a62b1c4960811c903cbd8f444c">
+				<ClosedGenericParameters>
+					<TypeRef>UInt8</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="59f2cc3149524c36b2f650e27946e9e4">
+			<Composite Id="1" Name="HandshakeDataType" ReferenceClass="" GenericTypeDefinition="@0ecbc0e42cd248c6a4ec358d6740bbae">
+				<GenericParameters>
+					<Generic GenericName="Element" />
+				</GenericParameters>
+				<BaseType>Void</BaseType>
+				<Members>
+					<Function Id="2" IsStatic="False" IsConstructor="False" Name="Acknowledge" ReturnType="Void" DeclaringType="@0ecbc0e42cd248c6a4ec358d6740bbae" GenericTypeDefinition="Void" />
+					<Function Id="3" IsStatic="False" IsConstructor="False" Name="Clear" ReturnType="Void" DeclaringType="@0ecbc0e42cd248c6a4ec358d6740bbae" GenericTypeDefinition="Void" />
+					<Function Id="4" IsStatic="False" IsConstructor="False" Name="Read" ReturnType="Void" DeclaringType="@0ecbc0e42cd248c6a4ec358d6740bbae" GenericTypeDefinition="Void" />
+					<Function Id="5" IsStatic="False" IsConstructor="False" Name="ReadWithoutAcknowledge" ReturnType="Void" DeclaringType="@0ecbc0e42cd248c6a4ec358d6740bbae" GenericTypeDefinition="Void" />
+					<Function Id="6" IsStatic="False" IsConstructor="False" Name="Write" ReturnType="Void" DeclaringType="@0ecbc0e42cd248c6a4ec358d6740bbae" GenericTypeDefinition="Void" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="771ec19d0a50421b99d778ef7709e11b">
+			<Composite Id="1" Name="FifoReadInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@558b1f9fdfd34fa1a5fabaa003b2bccc">
+				<ClosedGenericParameters>
+					<TypeRef>@4bfc10d1607344ca8c5a9108a4f7b672</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="abefb707c24543bb8cd2bfef03e0da19">
+			<Composite Id="1" Name="FifoWriteInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@7bba30ba768940e8bad37ad69a463714">
+				<ClosedGenericParameters>
+					<TypeRef>@4bfc10d1607344ca8c5a9108a4f7b672</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="43526131da4d4fcfbaea9c2b858ad0c4">
+			<Composite Id="1" Name="FifoClearInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@931c98a62b1c4960811c903cbd8f444c">
+				<ClosedGenericParameters>
+					<TypeRef>@4bfc10d1607344ca8c5a9108a4f7b672</TypeRef>
+				</ClosedGenericParameters>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="558b1f9fdfd34fa1a5fabaa003b2bccc">
+			<Attributed AttributedType="@08135b88088f442c82a5417d5d50804d">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7bba30ba768940e8bad37ad69a463714">
+			<Attributed AttributedType="@4321f39a8e71438f94e6c3356ec5a1a9">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="931c98a62b1c4960811c903cbd8f444c">
+			<Attributed AttributedType="@afbff39994044f5987087a32991773bd">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]TagRefnum" />
+					<AttributeValue Name="NI_UdrClass" Value="[string]Fifo" />
+					<AttributeValue Name="NI_UdrNamespace" Value="[string]FPGA" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="08135b88088f442c82a5417d5d50804d">
+			<Composite Id="1" Name="FifoReadInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@558b1f9fdfd34fa1a5fabaa003b2bccc">
+				<GenericParameters>
+					<Generic GenericName="Element" />
+				</GenericParameters>
+				<BaseType>Void</BaseType>
+				<Members>
+					<Field FieldAccessPolicy="Read" Name="used elements" DataType="UInt32" />
+					<Field FieldAccessPolicy="Read" Name="full threshold met?" DataType="Boolean" />
+					<Function Id="2" IsStatic="False" IsConstructor="False" Name="Read" ReturnType="Void" DeclaringType="@558b1f9fdfd34fa1a5fabaa003b2bccc" GenericTypeDefinition="Void" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="4321f39a8e71438f94e6c3356ec5a1a9">
+			<Composite Id="1" Name="FifoWriteInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@7bba30ba768940e8bad37ad69a463714">
+				<GenericParameters>
+					<Generic GenericName="Element" />
+				</GenericParameters>
+				<BaseType>Void</BaseType>
+				<Members>
+					<Field FieldAccessPolicy="Read" Name="free elements" DataType="UInt32" />
+					<Field FieldAccessPolicy="Read" Name="empty threshold met?" DataType="Boolean" />
+					<Function Id="2" IsStatic="False" IsConstructor="False" Name="Write" ReturnType="Void" DeclaringType="@7bba30ba768940e8bad37ad69a463714" GenericTypeDefinition="Void" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="afbff39994044f5987087a32991773bd">
+			<Composite Id="1" Name="FifoClearInterface" ReferenceClass="" Interface="" GenericTypeDefinition="@931c98a62b1c4960811c903cbd8f444c">
+				<GenericParameters>
+					<Generic GenericName="Element" />
+				</GenericParameters>
+				<BaseType>Void</BaseType>
+				<Members>
+					<Function Id="2" IsStatic="False" IsConstructor="False" Name="Clear" ReturnType="Void" DeclaringType="@931c98a62b1c4960811c903cbd8f444c" GenericTypeDefinition="Void" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+	</DataTypeReferenceTable>
+</SourceFile>
