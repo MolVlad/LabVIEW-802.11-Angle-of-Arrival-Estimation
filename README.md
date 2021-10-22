@@ -1,6 +1,6 @@
 # LabVIEW-802.11-Angle-of-Arrival-Estimation
 
-4-channel Wi-Fi receiver implementation in LabVIEW 2020. This receiver is able to extract from real Wi-Fi frames information about channel in order to find Directions of Arrival.
+4-channel Wi-Fi receiver implementation in LabVIEW 2020. This receiver is able to extract from real Wi-Fi frames information about channel in order to estimate Angle of Arrival.
 
 In case of any use, please cite original paper:
 
