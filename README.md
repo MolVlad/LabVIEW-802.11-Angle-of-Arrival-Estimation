@@ -4,6 +4,7 @@
 
 In case of any use, please cite original paper:
 
+```
 @INPROCEEDINGS{infocom,
   author={Khorov, Evgeny and Kureev, Aleksey and Molodtsov, Vladislav},
   booktitle={IEEE INFOCOM 2021 - IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)}, 
@@ -13,3 +14,4 @@ In case of any use, please cite original paper:
   number={},
   pages={1-2},
   doi={10.1109/INFOCOMWKSHPS51825.2021.9484482}}
+```
